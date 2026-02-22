@@ -29,6 +29,11 @@
         相比之下，三維微流道結構不僅能顯著提升熱交換表面積，更能有效利用三維空間進行熱傳優化設計，提升散熱效率，
         因此本中心導入具備高度靈活性與精度的五軸加工技術，開發三維金屬微結構製程，以突破傳統製程侷限，發展適用於次世代高效熱傳裝置。</p>
 
+      <figure class="research-image-container">
+        <img src="../images/CNC Microfabrication Flow.png" alt="五軸加工中心加工示意圖" style="max-width: 100%; height: auto;">
+        <figcaption>五軸加工中心加工示意圖</figcaption>
+      </figure>
+
       <h3>研究設備</h3>
       <p>(... 待補上 ...)</p>
 
@@ -37,8 +42,14 @@
   </main>
 
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
-  <footer> <p>&copy; 2025 熱管理技術研究中心</p> </footer>
+  
+  <footer> <p>&copy; <span id="currentYear"></span> 熱管理技術研究中心</p> </footer>
+  
   <script>
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
