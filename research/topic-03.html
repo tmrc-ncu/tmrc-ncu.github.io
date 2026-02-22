@@ -29,6 +29,11 @@
         例如 nVIDIA 從 2023 年發表之 H200 晶片開始，即指定液體冷卻為標準散熱規格，
         且預期未來晶片之發熱量持續增加，兩相蒸發冷卻將成為必要之選項。</p>
 
+      <figure class="research-image-container">
+        <img src="../images/Cooling_Market_Growth.png" alt="全球資料中心冷卻市場 (Grand View Research, Market analysis report, 2024)" style="max-width: 100%; height: auto;">
+        <figcaption>全球資料中心冷卻市場<br>(Grand View Research, Market analysis report, 2024)</figcaption>
+      </figure>
+
       <h3>研究設備</h3>
       <p>(... 待補上 ...)</p>
 
@@ -37,8 +42,14 @@
   </main>
 
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
-  <footer> <p>&copy; 2025 熱管理技術研究中心</p> </footer>
+  
+  <footer> <p>&copy; <span id="currentYear"></span> 熱管理技術研究中心</p> </footer>
+  
   <script>
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
