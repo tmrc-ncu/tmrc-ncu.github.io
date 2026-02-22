@@ -73,7 +73,7 @@
       <h3>個人簡介</h3>
       <p>學歷(Education):</p>
       <p>
-        國立清華大學材料科學博士(Ph.D, Department of Materials Science and Engineering, National Tsing Hua University)
+        Ph.D, Department of Materials Science and Engineering, National Tsing Hua University
       </p>
       
       <h3>團隊人數</h3>
@@ -105,7 +105,6 @@
               <th>計畫名稱</th>
               <th>執行期限</th>
               <th>補助單位</th>
-              <th>金額</th>
             </tr>
           </thead>
           <tbody id="projectTableBody">
@@ -122,7 +121,7 @@
         專線電話 (TEL): 03-4227151<br>
         校內分機 (Campus Extension): 34909<br>
         傳真電話 (Fax): 03-4254501<br>
-        E-mail: <a href="jclincom@cc.ncu.edu.tw" style="text-decoration: none;">jclincom@cc.ncu.edu.tw</a><br>
+        E-mail: <a href="mailto:jclincom@cc.ncu.edu.tw" style="text-decoration: none;">jclincom@cc.ncu.edu.tw</a><br>
         實驗室 (Laboratory): 奈微米材料實驗室 E6-B117、奈微米材料實驗室 E6-A001
       </p>
 
@@ -134,7 +133,6 @@
   
   <footer>
     <div class="footer-container">
-      
       <div class="footer-left">
         <div class="zh-title">
           <h4>國立中央大學</h4>
@@ -145,21 +143,16 @@
           <p>NATIONAL CENTRAL UNIVERSITY</p>
         </div>
       </div>
-
       <div class="footer-right">
-        
         <div class="contact-info">
           <p>TEL : 03-4267358 #34358</p>
           <p>EMAIL : generallab120@gmail.com</p>
           <p>ADD : 桃園市中壢區中大路300號機械系</p>
         </div>
-
         <div class="copyright-info">
           <p>© 2025 熱管理技術研究中心</p>
         </div>
-
       </div>
-
     </div>
   </footer>
   
@@ -170,11 +163,11 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. 定義計畫資料 (改用 JavaScript 陣列管理)
+      // 1. 定義計畫資料 (已移除 amount)
       const projectData = [
-        { role: "主持人", name: "林景崎", title: "以微電鍍法製作1T相二硫化鉬/奈米碳管/鎳-鉬複合微柱並應用於鹼性水電解產氫", date: "2024/08/01-2025/10/31", agency: "國科會", amount: "1,500,000" },
-        { role: "主持人", name: "林景崎", title: "微電鍍製作鋅鎳/二硫化鉬複合電極及其電解產氫之催化活性研究", date: "2023/08/01-2024/10/31", agency: "國科會", amount: "1,389,000" },
-        { role: "主持人", name: "林景崎", title: "鎳鈷鐵合金微柱之電鍍研製及其在電解水析氧之研究", date: "2022/08/01-2023/07/31", agency: "國科會", amount: "1,400,000" }
+        { role: "主持人", name: "林景崎", title: "以微電鍍法製作1T相二硫化鉬/奈米碳管/鎳-鉬複合微柱並應用於鹼性水電解產氫", date: "2024/08/01-2025/10/31", agency: "國科會" },
+        { role: "主持人", name: "林景崎", title: "微電鍍製作鋅鎳/二硫化鉬複合電極及其電解產氫之催化活性研究", date: "2023/08/01-2024/10/31", agency: "國科會" },
+        { role: "主持人", name: "林景崎", title: "鎳鈷鐵合金微柱之電鍍研製及其在電解水析氧之研究", date: "2022/08/01-2023/07/31", agency: "國科會" }
       ];
 
       const rowsPerPage = 10;
@@ -184,14 +177,14 @@
 
       // 渲染表格資料
       function renderTable(page) {
-        tableBody.innerHTML = ""; // 清空表格
+        tableBody.innerHTML = ""; 
         const totalRows = projectData.length;
         const startIndex = (page - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
         const pageItems = projectData.slice(startIndex, endIndex);
 
         if (pageItems.length === 0) {
-          tableBody.innerHTML = "<tr><td colspan='6'>目前沒有研究計畫資料。</td></tr>";
+          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
           return;
         }
 
@@ -202,7 +195,6 @@
             <td>${item.title}</td> 
             <td class="col-date">${item.date}</td>
             <td>${item.agency}</td>
-            <td class="col-amount">${item.amount}</td>
           </tr>`;
           tableBody.innerHTML += row;
         });
@@ -210,13 +202,11 @@
         setupPagination();
       }
 
-      // 建立分頁按鈕
       function setupPagination() {
         paginationControls.innerHTML = "";
         const totalRows = projectData.length;
         const totalPages = Math.ceil(totalRows / rowsPerPage);
 
-        // 如果只有一頁或沒資料，不顯示分頁按鈕
         if (totalPages <= 1) return;
 
         function createBtn(text, pageNum, isActive = false, isDisabled = false) {
@@ -241,30 +231,8 @@
         paginationControls.appendChild(createBtn("«", 1, false, currentPage === 1));
         paginationControls.appendChild(createBtn("<", currentPage - 1, false, currentPage === 1));
 
-        const maxPageButtons = 5;
-        let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-        let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
-
-        if (endPage - startPage + 1 < maxPageButtons) {
-          startPage = Math.max(1, endPage - maxPageButtons + 1);
-        }
-
-        if (startPage > 1) {
-          const dots = document.createElement("span");
-          dots.innerText = "...";
-          dots.classList.add("pagination-btn", "disabled");
-          paginationControls.appendChild(dots);
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
+        for (let i = 1; i <= totalPages; i++) {
           paginationControls.appendChild(createBtn(i, i, i === currentPage, false));
-        }
-
-        if (endPage < totalPages) {
-          const dots = document.createElement("span");
-          dots.innerText = "...";
-          dots.classList.add("pagination-btn", "disabled");
-          paginationControls.appendChild(dots);
         }
 
         paginationControls.appendChild(createBtn(">", currentPage + 1, false, currentPage === totalPages));
