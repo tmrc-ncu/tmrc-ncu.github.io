@@ -99,9 +99,8 @@
 
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
 
-  <footer>
+    <footer>
     <div class="footer-container">
-      
       <div class="footer-left">
         <div class="zh-title">
           <h4>國立中央大學</h4>
@@ -112,23 +111,22 @@
           <p>NATIONAL CENTRAL UNIVERSITY</p>
         </div>
       </div>
-
       <div class="footer-right">
-        
         <div class="contact-info">
-          <p>TEL : 03-4267358 #34358</p>
-          <p>EMAIL : generallab120@gmail.com</p>
+          <p>TEL : 03-4267368</p>
+          <p>聯絡人 : 彭小姐</p>
           <p>ADD : 桃園市中壢區中大路300號機械系</p>
         </div>
-
         <div class="copyright-info">
-          <p>© 2025 熱管理技術研究中心</p>
+          <p>&copy; <span id="currentYear"></span> 熱管理技術研究中心</p>
         </div>
-
       </div>
-
     </div>
   </footer>
+  
+  <script>
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
 
   <script>
     window.onscroll = () => {
