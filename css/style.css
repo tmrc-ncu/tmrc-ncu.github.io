@@ -811,6 +811,30 @@ footer {
   transform: translateX(-5px);
 }
 
+/* ===================
+   研究項目圖片排版
+=================== */
+.research-image-container {
+  margin: 30px auto;      
+  text-align: center;     
+  width: 100%;            
+}
+
+.research-image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;         
+  margin: 0 auto;         
+}
+
+.research-image-container figcaption {
+  margin-top: 15px;       
+  font-size: 0.95em;      
+  color: #555555;         
+  font-weight: bold;      
+  text-align: center;     
+}
+
 /* ===========================
    工具樣式 (Utilities)
 =========================== */
