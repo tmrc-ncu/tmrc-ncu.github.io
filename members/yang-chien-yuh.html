@@ -8,11 +8,10 @@
   <style>
     /* --- 表格樣式修正 --- */
     
-    /* *** 新增：全域表格儲存格設定 *** */
-    /* 這裡設定 vertical-align: middle 可以解決對齊問題 */
+    /* *** 全域表格儲存格設定 *** */
     #projectTable td {
-      vertical-align: middle; /* 關鍵：強制垂直置中 */
-      padding-top: 10px;      /* 上下留白讓置中更明顯 */
+      vertical-align: middle; 
+      padding-top: 10px;      
       padding-bottom: 10px;
     }
 
@@ -37,14 +36,11 @@
       line-height: 1.5;
     }
     
-    /* 4. 執行期限 (第4欄): 日期字體可以微調 */
+    /* 4. 執行期限 (第4欄): 日期字體微調 */
     #projectTable td:nth-child(4) {
       white-space: nowrap;
-      font-family: Arial, sans-serif; /* 讓數字更整齊 */
+      font-family: Arial, sans-serif;
     }
-
-     /* 5. 金額 (第6欄): 靠右對齊通常比較好讀 (可選) */
-     /* 如果原本是置中也可以維持，這裡先維持預設 */
   </style>
 </head>
 <body>
@@ -98,7 +94,6 @@
               <th>計畫名稱</th>
               <th>執行期限</th>
               <th>補助單位</th>
-              <th>金額</th>
             </tr>
           </thead>
           <tbody id="projectTableBody">
@@ -128,7 +123,6 @@
   
   <footer>
     <div class="footer-container">
-      
       <div class="footer-left">
         <div class="zh-title">
           <h4>國立中央大學</h4>
@@ -139,21 +133,16 @@
           <p>NATIONAL CENTRAL UNIVERSITY</p>
         </div>
       </div>
-
       <div class="footer-right">
-        
         <div class="contact-info">
           <p>TEL : 03-4267358 #34358</p>
           <p>EMAIL : generallab120@gmail.com</p>
           <p>ADD : 桃園市中壢區中大路300號機械系</p>
         </div>
-
         <div class="copyright-info">
           <p>© 2025 熱管理技術研究中心</p>
         </div>
-
       </div>
-
     </div>
   </footer>
   
@@ -164,30 +153,30 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. 定義計畫資料
+      // 1. 定義計畫資料 (已移除 amount)
       const projectData = [
-        { role: "主持人", name: "楊建裕", title: "兩相蒸發器性能增強研究", date: "2025/03/01-2026/02/28", agency: "產學合作", amount: "1,200,000" },
-        { role: "主持人", name: "楊建裕", title: "兩相冷板開發及性能測試研究計畫", date: "2025/02/01-2026/01/31", agency: "產學合作", amount: "1,450,000" },
-        { role: "主持人", name: "楊建裕", title: "浸泡式冷卻系統加熱及冷卻熱傳增強研究", date: "2025/01/01-2026/12/31", agency: "產學合作", amount: "2,000,000" },
-        { role: "主持人", name: "楊建裕", title: "兩相蒸發器開發研究計畫", date: "2024/08/01-2025/07/31", agency: "產學合作", amount: "800,000" },
-        { role: "主持人", name: "楊建裕", title: "垂直擺放多熱源池沸騰熱傳性能研究", date: "2024/08/01-2025/07/31", agency: "國科會", amount: "1,181,000" },
-        { role: "主持人", name: "楊建裕", title: "液態金屬介面層散熱機制先期研究", date: "2024/07/01-2025/06/30", agency: "產學合作", amount: "350,000" },
-        { role: "主持人", name: "楊建裕", title: "銅-鋁腐蝕對熱傳性能能影響研究計畫", date: "2024/05/01-2025/04/30", agency: "產學合作", amount: "1,100,000" },
-        { role: "主持人", name: "楊建裕", title: "廢氣處理爐熱回收熱交換器", date: "2024/05/01-2025/04/30", agency: "產學合作", amount: "600,000" },
-        { role: "主持人", name: "楊建裕", title: "微熱交換器流動沸騰熱傳性能研究", date: "2024/04/01-2025/03/31", agency: "產學合作", amount: "1,060,000" },
-        { role: "主持人", name: "楊建裕", title: "IC測試設備均溫控制技術研究", date: "2024/02/01-2025/12/31", agency: "產學合作", amount: "2,180,000" },
-        { role: "主持人", name: "楊建裕", title: "高性能蒸發冷卻系統熱交換器開發", date: "2023/01/01-2024/12/31", agency: "國科會", amount: "1,100,000" },
-        { role: "主持人", name: "楊建裕", title: "空調系統最佳運轉策略模型研究計畫", date: "2023/10/01-2024/09/30", agency: "產學合作", amount: "890,000" },
-        { role: "主持人", name: "楊建裕", title: "微流道熱交換器流動沸騰熱傳增強研究", date: "2021/08/01-2024/07/31", agency: "國科會", amount: "3,696,000" },
-        { role: "主持人", name: "楊建裕", title: "功率模組微流道冷板開發及性能評估計畫", date: "2023/06/01-2024/05/31", agency: "產學合作", amount: "1,000,000" },
-        { role: "主持人", name: "楊建裕", title: "低溫熱管結凍-解凍熱傳性能測試分析研究", date: "2023/05/02-2023/11/30", agency: "國家太空中心", amount: "858,725" },
-        { role: "主持人", name: "楊建裕", title: "高性能蒸發冷卻系統熱交換器開發(雙邊協議擴充加值國際合作研究計畫)", date: "2022/01/01-2023/12/31", agency: "國科會", amount: "1,100,000" },
-        { role: "主持人", name: "楊建裕", title: "面板烤爐熱回收熱交換器研究計畫", date: "2023/01/01-2023/12/31", agency: "產學合作", amount: "800,000" },
-        { role: "主持人", name: "楊建裕", title: "高功率密度QSFP-DD連接模組冷卻技術研究(專題研究計畫)", date: "2022/11/01-2023/10/31", agency: "國科會", amount: "1,220,000" },
-        { role: "主持人", name: "楊建裕", title: "高功率密度QSFP-DD連接模組冷卻技術研究", date: "2022/11/01-2023/10/31", agency: "產學合作", amount: "350,000" },
-        { role: "主持人", name: "楊建裕", title: "EnergyPlus模型之空調負荷預測技術開發研究計畫", date: "2022/10/01-2023/09/30", agency: "產學合作", amount: "1,000,000" },
-        { role: "主持人", name: "楊建裕", title: "物聯網移動冷鏈解決方案", date: "2021/06/01-2023/05/31", agency: "國科會", amount: "6,600,000" },
-        { role: "主持人", name: "楊建裕", title: "物聯網移動冷鏈解決方案", date: "2021/06/01-2023/05/31", agency: "產學合作", amount: "2,000,000" }
+        { role: "主持人", name: "楊建裕", title: "兩相蒸發器性能增強研究", date: "2025/03/01-2026/02/28", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "兩相冷板開發及性能測試研究計畫", date: "2025/02/01-2026/01/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "浸泡式冷卻系統加熱及冷卻熱傳增強研究", date: "2025/01/01-2026/12/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "兩相蒸發器開發研究計畫", date: "2024/08/01-2025/07/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "垂直擺放多熱源池沸騰熱傳性能研究", date: "2024/08/01-2025/07/31", agency: "國科會" },
+        { role: "主持人", name: "楊建裕", title: "液態金屬介面層散熱機制先期研究", date: "2024/07/01-2025/06/30", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "銅-鋁腐蝕對熱傳性能能影響研究計畫", date: "2024/05/01-2025/04/30", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "廢氣處理爐熱回收熱交換器", date: "2024/05/01-2025/04/30", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "微熱交換器流動沸騰熱傳性能研究", date: "2024/04/01-2025/03/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "IC測試設備均溫控制技術研究", date: "2024/02/01-2025/12/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "高性能蒸發冷卻系統熱交換器開發", date: "2023/01/01-2024/12/31", agency: "國科會" },
+        { role: "主持人", name: "楊建裕", title: "空調系統最佳運轉策略模型研究計畫", date: "2023/10/01-2024/09/30", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "微流道熱交換器流動沸騰熱傳增強研究", date: "2021/08/01-2024/07/31", agency: "國科會" },
+        { role: "主持人", name: "楊建裕", title: "功率模組微流道冷板開發及性能評估計畫", date: "2023/06/01-2024/05/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "低溫熱管結凍-解凍熱傳性能測試分析研究", date: "2023/05/02-2023/11/30", agency: "國家太空中心" },
+        { role: "主持人", name: "楊建裕", title: "高性能蒸發冷卻系統熱交換器開發(雙邊協議擴充加值國際合作研究計畫)", date: "2022/01/01-2023/12/31", agency: "國科會" },
+        { role: "主持人", name: "楊建裕", title: "面板烤爐熱回收熱交換器研究計畫", date: "2023/01/01-2023/12/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "高功率密度QSFP-DD連接模組冷卻技術研究(專題研究計畫)", date: "2022/11/01-2023/10/31", agency: "國科會" },
+        { role: "主持人", name: "楊建裕", title: "高功率密度QSFP-DD連接模組冷卻技術研究", date: "2022/11/01-2023/10/31", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "EnergyPlus模型之空調負荷預測技術開發研究計畫", date: "2022/10/01-2023/09/30", agency: "產學合作" },
+        { role: "主持人", name: "楊建裕", title: "物聯網移動冷鏈解決方案", date: "2021/06/01-2023/05/31", agency: "國科會" },
+        { role: "主持人", name: "楊建裕", title: "物聯網移動冷鏈解決方案", date: "2021/06/01-2023/05/31", agency: "產學合作" }
       ];
 
       const rowsPerPage = 10;
@@ -197,14 +186,14 @@
 
       // 渲染表格資料
       function renderTable(page) {
-        tableBody.innerHTML = ""; // 清空表格
+        tableBody.innerHTML = ""; 
         const totalRows = projectData.length;
         const startIndex = (page - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
         const pageItems = projectData.slice(startIndex, endIndex);
 
         if (pageItems.length === 0) {
-          tableBody.innerHTML = "<tr><td colspan='6'>目前沒有研究計畫資料。</td></tr>";
+          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
           return;
         }
 
@@ -215,7 +204,6 @@
             <td>${item.title}</td>
             <td class="col-date">${item.date}</td>
             <td>${item.agency}</td>
-            <td class="col-amount">${item.amount}</td>
           </tr>`;
           tableBody.innerHTML += row;
         });
