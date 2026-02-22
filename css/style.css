@@ -824,7 +824,9 @@ footer {
   max-width: 100%;
   height: auto;
   display: block;         
-  margin: 0 auto;         
+  margin: 0 auto;
+  box-shadow: none;       /* 取消陰影 */
+  border-radius: 0;       /* 取消圓角 */
 }
 
 .research-image-container figcaption {
