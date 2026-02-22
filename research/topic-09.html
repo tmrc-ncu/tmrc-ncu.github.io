@@ -23,8 +23,14 @@
 
       <h3>研究內容</h3>
       <p>本研究透過在液態金屬基底中添加金屬、非金屬的填料（filler）以提升 LM TIMs 的熱傳導係數，
-        並藉由調變液態金屬之流變性質，增廣其應用領域之研發及應用。由於兼具各種綜合優勢，液態金屬有望成為理想的超高功率密度散熱材料；
+        並藉由調變液態金屬之流變性質，增廣其應用領域之研發及應用。
+        由於兼具各種綜合優勢，液態金屬有望成為理想的超高功率密度散熱材料；
         本項目的最終目標是製作出符合次世代需求的高 κ 值 LM TIMs，帶動構建嶄新的技術應用體系。</p>
+
+      <figure class="research-image-container">
+        <img src="../images/High-Conductivity LM TIM Process.png" alt="研發含不同填料之高熱導LM TIM及製程建立" style="max-width: 100%; height: auto;">
+        <figcaption>研發含不同填料之高熱導 LM TIM 及製程建立</figcaption>
+      </figure>
 
       <h3>研究設備</h3>
       <p>(... 待補上 ...)</p>
@@ -34,8 +40,14 @@
   </main>
 
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
-  <footer> <p>&copy; 2025 熱管理技術研究中心</p> </footer>
+  
+  <footer> <p>&copy; <span id="currentYear"></span> 熱管理技術研究中心</p> </footer>
+  
   <script>
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
