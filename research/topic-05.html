@@ -27,6 +27,11 @@
         已難以滿足新世代封裝散熱模組對複雜微結構、高密度三維流道與異質材料加工的需求。
         超快雷射具備極短脈衝時間與高峰值能量，能在極小熱影響區條件下，實現對金屬、玻璃、陶瓷等材料的高精度微細加工。</p>
 
+      <figure class="research-image-container">
+        <img src="../images/Ultrafast_Laser_Setup.jpg" alt="超快雷射加工系統示意圖" style="max-width: 100%; height: auto;">
+        <figcaption>超快雷射加工系統示意圖</figcaption>
+      </figure>
+
       <h3>研究設備</h3>
       <p>(... 待補上 ...)</p>
 
@@ -35,8 +40,14 @@
   </main>
 
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
-  <footer> <p>&copy; 2025 熱管理技術研究中心</p> </footer>
+  
+  <footer> <p>&copy; <span id="currentYear"></span> 熱管理技術研究中心</p> </footer>
+  
   <script>
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
