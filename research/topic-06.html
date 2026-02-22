@@ -28,6 +28,11 @@
         結合 AI 數位熱模擬與雷射路徑優化演算法，發展適用於高複雜度微流道設計之製程平台，
         以突破傳統加工極限，實現功能整合、高效率與高可靠性的先進封裝散熱模組。</p>
 
+      <figure class="research-image-container">
+        <img src="../images/Ultrafast Laser Setup.png" alt="雷射新穎製程技術示意圖" style="max-width: 100%; height: auto;">
+        <figcaption>開發雷射新穎製程技術，在創新基板材料中建立高效能散熱與導熱微結構</figcaption>
+      </figure>
+
       <h3>研究設備</h3>
       <p>(... 待補上 ...)</p>
       
@@ -36,8 +41,14 @@
   </main>
 
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
-  <footer> <p>&copy; 2025 熱管理技術研究中心</p> </footer>
+  
+  <footer> <p>&copy; <span id="currentYear"></span> 熱管理技術研究中心</p> </footer>
+  
   <script>
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
