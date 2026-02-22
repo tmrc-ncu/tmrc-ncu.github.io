@@ -46,7 +46,9 @@
 
   </main> 
  
-  <footer>
+   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+
+    <footer>
     <div class="footer-container">
       <div class="footer-left">
         <div class="zh-title">
@@ -79,6 +81,5 @@
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
-
 </body>
 </html>
