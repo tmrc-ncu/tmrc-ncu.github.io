@@ -107,7 +107,6 @@
               <th>計畫名稱</th>
               <th>執行期限</th>
               <th>補助單位</th>
-              <th>金額</th>
             </tr>
           </thead>
           <tbody id="projectTableBody">
@@ -174,8 +173,8 @@
     document.addEventListener("DOMContentLoaded", function() {
       // 1. 定義計畫資料 (僅保留 2022 年後執行之計畫)
       const projectData = [
-        { role: "共同主持人", name: "曹嘉文", title: "孔隙與達西尺度的非飽和層殘餘水-入滲水交互作用研究", date: "2022/08/01-2025/07/31", agency: "國科會", amount: "3,248,000" },
-        { role: "主持人", name: "曹嘉文", title: "利用微液滴沉積法以及微液滴透鏡進行表面增強拉曼散射檢測之研究", date: "2022/08/01-2025/07/31", agency: "國科會", amount: "2,774,000" }
+        { role: "共同主持人", name: "曹嘉文", title: "孔隙與達西尺度的非飽和層殘餘水-入滲水交互作用研究", date: "2022/08/01-2025/07/31", agency: "國科會" },
+        { role: "主持人", name: "曹嘉文", title: "利用微液滴沉積法以及微液滴透鏡進行表面增強拉曼散射檢測之研究", date: "2022/08/01-2025/07/31", agency: "國科會" }
       ];
 
       const rowsPerPage = 10;
@@ -192,7 +191,7 @@
         const pageItems = projectData.slice(startIndex, endIndex);
 
         if (pageItems.length === 0) {
-          tableBody.innerHTML = "<tr><td colspan='6'>目前沒有研究計畫資料。</td></tr>";
+          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
           return;
         }
 
@@ -203,7 +202,6 @@
             <td>${item.title}</td>
             <td class="col-date">${item.date}</td>
             <td>${item.agency}</td>
-            <td class="col-amount">${item.amount}</td>
           </tr>`;
           tableBody.innerHTML += row;
         });
