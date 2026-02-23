@@ -104,7 +104,6 @@
               <th>計畫名稱</th>
               <th>執行期限</th>
               <th>補助單位</th>
-              <th>金額</th>
             </tr>
           </thead>
           <tbody id="projectTableBody">
@@ -168,9 +167,9 @@
     document.addEventListener("DOMContentLoaded", function() {
       // 1. 定義計畫資料 (改用 JavaScript 陣列管理)
       const projectData = [
-        { role: "主持人", name: "劉正毓", title: "玻璃基板金屬化及低溫低壓銅-銅直接鍵合技術開發暨可靠度分析建模", date: "2025/08/01-2026/07/31", agency: "國科會", amount: "1,498,000" },
-        { role: "主持人", name: "劉正毓", title: "建構μ-銲錫合金接點之微結構控制模型及其與電遷移失效機制相關性研究", date: "2025/08/01-2026/07/31", agency: "國科會", amount: "1,617,000" },
-        { role: "主持人", name: "劉正毓", title: "開發製作具三維立體Cu6Sn5及(Cu,Ni)6Sn5化合物支架銲點的錫膏", date: "2022/08/01-2025/07/31", agency: "國科會", amount: "6,148,000" }
+        { role: "主持人", name: "劉正毓", title: "玻璃基板金屬化及低溫低壓銅-銅直接鍵合技術開發暨可靠度分析建模", date: "2025/08/01-2026/07/31", agency: "國科會" },
+        { role: "主持人", name: "劉正毓", title: "建構μ-銲錫合金接點之微結構控制模型及其與電遷移失效機制相關性研究", date: "2025/08/01-2026/07/31", agency: "國科會" },
+        { role: "主持人", name: "劉正毓", title: "開發製作具三維立體Cu6Sn5及(Cu,Ni)6Sn5化合物支架銲點的錫膏", date: "2022/08/01-2025/07/31", agency: "國科會" }
       ];
 
       const rowsPerPage = 10;
@@ -187,7 +186,7 @@
         const pageItems = projectData.slice(startIndex, endIndex);
 
         if (pageItems.length === 0) {
-          tableBody.innerHTML = "<tr><td colspan='6'>目前沒有研究計畫資料。</td></tr>";
+          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
           return;
         }
 
