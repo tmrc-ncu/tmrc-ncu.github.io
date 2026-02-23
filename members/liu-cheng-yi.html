@@ -118,7 +118,7 @@
       <p>
         辦公室(Office): 工程四館 E3-220-1<br>
         校內分機 (Campus Extension): 34228<br>
-        E-mail: <a href="chengyi@cc.ncu.edu.tw" style="text-decoration: none;">chengyi@cc.ncu.edu.tw</a><br>
+        E-mail: <a href="mailto:chengyi@cc.ncu.edu.tw" style="text-decoration: none;">chengyi@cc.ncu.edu.tw</a><br>
         實驗室 (Laboratory): 光電子材料實驗室 E3-218
       </p>
 
@@ -154,18 +154,14 @@
   </footer>
   
   <script>
-    // 讓頁尾版權年份自動更新
     document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
-  
-  <script>
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. 定義計畫資料 (改用 JavaScript 陣列管理)
+      // 1. 定義計畫資料 (已移除 amount)
       const projectData = [
         { role: "主持人", name: "劉正毓", title: "玻璃基板金屬化及低溫低壓銅-銅直接鍵合技術開發暨可靠度分析建模", date: "2025/08/01-2026/07/31", agency: "國科會" },
         { role: "主持人", name: "劉正毓", title: "建構μ-銲錫合金接點之微結構控制模型及其與電遷移失效機制相關性研究", date: "2025/08/01-2026/07/31", agency: "國科會" },
@@ -179,7 +175,7 @@
 
       // 渲染表格資料
       function renderTable(page) {
-        tableBody.innerHTML = ""; // 清空表格
+        tableBody.innerHTML = ""; 
         const totalRows = projectData.length;
         const startIndex = (page - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
@@ -190,14 +186,13 @@
           return;
         }
 
-        pageItems.forEach(item => {     
+        pageItems.forEach(item => {      
           const row = `<tr>
             <td>${item.role}</td>
             <td>${item.name}</td>
             <td>${item.title}</td>
             <td class="col-date">${item.date}</td>
             <td>${item.agency}</td>
-            <td class="col-amount">${item.amount}</td>
           </tr>`;
           tableBody.innerHTML += row;
         });
@@ -205,13 +200,11 @@
         setupPagination();
       }
 
-      // 建立分頁按鈕
       function setupPagination() {
         paginationControls.innerHTML = "";
         const totalRows = projectData.length;
         const totalPages = Math.ceil(totalRows / rowsPerPage);
 
-        // 如果只有一頁或沒資料，不顯示分頁按鈕
         if (totalPages <= 1) return;
 
         function createBtn(text, pageNum, isActive = false, isDisabled = false) {
@@ -236,30 +229,8 @@
         paginationControls.appendChild(createBtn("«", 1, false, currentPage === 1));
         paginationControls.appendChild(createBtn("<", currentPage - 1, false, currentPage === 1));
 
-        const maxPageButtons = 5;
-        let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-        let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
-
-        if (endPage - startPage + 1 < maxPageButtons) {
-          startPage = Math.max(1, endPage - maxPageButtons + 1);
-        }
-
-        if (startPage > 1) {
-          const dots = document.createElement("span");
-          dots.innerText = "...";
-          dots.classList.add("pagination-btn", "disabled");
-          paginationControls.appendChild(dots);
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
+        for (let i = 1; i <= totalPages; i++) {
           paginationControls.appendChild(createBtn(i, i, i === currentPage, false));
-        }
-
-        if (endPage < totalPages) {
-          const dots = document.createElement("span");
-          dots.innerText = "...";
-          dots.classList.add("pagination-btn", "disabled");
-          paginationControls.appendChild(dots);
         }
 
         paginationControls.appendChild(createBtn(">", currentPage + 1, false, currentPage === totalPages));
