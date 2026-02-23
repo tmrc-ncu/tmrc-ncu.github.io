@@ -18,6 +18,9 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 確保 body 至少跟螢幕一樣高 */
 }
 
 /* ===========================
@@ -30,10 +33,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  width: 100%;            /* 強制滿版 */
+  box-sizing: border-box;  /* 確保 padding 不會撐破寬度 */
   /* --- 使用更柔和的陰影 --- */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
-  
   position: sticky; 
   top: 0;
   z-index: 100;
@@ -95,15 +98,18 @@ nav a:hover::after {
 /* ===========================
    主要內容區 (Main)
 =========================== */
+/* 基礎 main 設定 */
 main {
-  max-width: 1100px; /* 這是針對內容卡片，但橫幅需要滿版 */
-  margin: 2rem auto; 
-  padding: 0 1rem;
+  flex: 1; /* 關鍵：這會把 footer 推到螢幕最下方 */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
 }
 
-/* --- 針對沒有橫幅(Banner)的頁面，手動補回上方間距 --- */
+/* 針對沒有橫幅的頁面 (例如教授頁、公告頁) */
 .no-banner-main {
-  margin-top: 2rem; 
+  padding-top: 3rem; /* 改用 padding 確保空間不會被摺疊 */
+  padding-bottom: 3rem;
 }
 
 /* 內容卡片 */
