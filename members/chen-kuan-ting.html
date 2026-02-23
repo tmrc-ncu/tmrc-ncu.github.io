@@ -103,7 +103,6 @@
               <th>計畫名稱</th>
               <th>執行期限</th>
               <th>補助單位</th>
-              <th>金額</th>
             </tr>
           </thead>
           <tbody id="projectTableBody">
@@ -121,7 +120,7 @@
         校內分機 (Campus Extension): 34358<br>
         傳真電話 (Fax): 03-4254501<br>
         E-mail: <a href="mailto:ncuchenkuanting@ncu.edu.tw" style="text-decoration: none;">ncuchenkuanting@ncu.edu.tw</a><br>
-        實驗室 (Laboratory): E2-120<br>
+        實驗室 (Laboratory): 熱傳增強實驗室 E2-120<br>
         實驗室分機: 34364
       </p>
 
@@ -171,13 +170,13 @@
       // 1. 定義計畫資料 (僅保留 2022 年後執行之計畫)
       // 原資料皆為近年計畫，無需刪減
       const projectData = [
-        { role: "共同主持人", name: "陳冠廷", title: "高功率AI伺服器兩相蒸發冷卻系統研究", date: "2025/11/01-2026/10/31", agency: "產學合作", amount: "4,250,000" },
-        { role: "共同主持人", name: "陳冠廷", title: "不同冷媒在微流道冷板內流動沸騰熱傳性能比較研究計畫", date: "2025/09/01-2027/08/31", agency: "產學合作", amount: "3,300,000" },
-        { role: "共同主持人", name: "陳冠廷", title: "兩相冷板開發及性能測試研究計畫", date: "2025/02/01-2026/01/31", agency: "產學合作", amount: "1,450,000" },
-        { role: "共同主持人", name: "陳冠廷", title: "兩相蒸發器開發研究計畫", date: "2024/08/01-2025/07/31", agency: "產學合作", amount: "800,000" },
-        { role: "主持人", name: "陳冠廷", title: "介操控石墨烯表面電濕性增強凝結熱傳之研究", date: "2024/08/01-2025/07/31", agency: "國科會", amount: "936,000" },
-        { role: "共同主持人", name: "陳冠廷", title: "IC測試設備均溫控制技術", date: "2024/02/01-2025/01/31", agency: "產學合作", amount: "1,600,000" },
-        { role: "主持人", name: "陳冠廷", title: "石墨烯表面電濕性對液氣介面熱傳增強之研究", date: "2023/09/01-2024/08/31", agency: "國科會", amount: "803,000" }
+        { role: "共同主持人", name: "陳冠廷", title: "高功率AI伺服器兩相蒸發冷卻系統研究", date: "2025/11/01-2026/10/31", agency: "產學合作" },
+        { role: "共同主持人", name: "陳冠廷", title: "不同冷媒在微流道冷板內流動沸騰熱傳性能比較研究計畫", date: "2025/09/01-2027/08/31", agency: "產學合作" },
+        { role: "共同主持人", name: "陳冠廷", title: "兩相冷板開發及性能測試研究計畫", date: "2025/02/01-2026/01/31", agency: "產學合作"},
+        { role: "共同主持人", name: "陳冠廷", title: "兩相蒸發器開發研究計畫", date: "2024/08/01-2025/07/31", agency: "產學合作"},
+        { role: "主持人", name: "陳冠廷", title: "介操控石墨烯表面電濕性增強凝結熱傳之研究", date: "2024/08/01-2025/07/31", agency: "國科會" },
+        { role: "共同主持人", name: "陳冠廷", title: "IC測試設備均溫控制技術", date: "2024/02/01-2025/01/31", agency: "產學合作"},
+        { role: "主持人", name: "陳冠廷", title: "石墨烯表面電濕性對液氣介面熱傳增強之研究", date: "2023/09/01-2024/08/31", agency: "國科會" }
       ];
 
       const rowsPerPage = 10;
@@ -194,7 +193,7 @@
         const pageItems = projectData.slice(startIndex, endIndex);
 
         if (pageItems.length === 0) {
-          tableBody.innerHTML = "<tr><td colspan='6'>目前沒有研究計畫資料。</td></tr>";
+          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
           return;
         }
 
@@ -208,7 +207,6 @@
             <td>${displayTitle}</td>
             <td class="col-date">${item.date}</td>
             <td>${item.agency}</td>
-            <td class="col-amount">${item.amount}</td>
           </tr>`;
           tableBody.innerHTML += row;
         });
