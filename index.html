@@ -32,10 +32,8 @@
   <main>
     <section class="content-card news">
       <h2>最新消息</h2>
-      <ul>
-        <li><a href="news/news-article-1.html">[公告] 2025年秋季熱管理技術研討會開放報名</a></li>
-        <li><a href="#">[賀] 本中心獲得計畫補助</a></li>
-        <li><a href="#">[演講] </a></li>
+      <ul id="latest-news-list">
+        <li>載入中...</li>
       </ul>
       <div class="view-all-container">
         <a href="news.html" class="view-all-link">
@@ -80,6 +78,43 @@
     // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    // 自動抓取 news.html 的前三則最新消息
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('news.html')
+        .then(response => {
+          if (!response.ok) throw new Error('網路回應錯誤');
+          return response.text();
+        })
+        .then(html => {
+          // 將抓取到的純文字 HTML 轉換為可操作的 DOM 物件
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          
+          // 在抓取到的文件中尋找 news.html 裡的新聞列表
+          const newsItems = doc.querySelectorAll('ul.news li');
+          const targetList = document.getElementById('latest-news-list');
+          
+          // 清空「載入中...」的文字
+          targetList.innerHTML = ''; 
+
+          // 迴圈抓取前 3 筆，如果不足 3 筆就抓實際數量
+          for (let i = 0; i < 3 && i < newsItems.length; i++) {
+            // 為了避免超連結的相對路徑出錯（如果這兩個檔案在同層資料夾則沒問題）
+            // 將整個 <li> 複製一份並塞進 index.html
+            targetList.appendChild(newsItems[i].cloneNode(true));
+          }
+
+          // 如果 news.html 裡面一則新聞都沒有的防呆機制
+          if(newsItems.length === 0) {
+            targetList.innerHTML = '<li>目前無最新消息</li>';
+          }
+        })
+        .catch(error => {
+          console.error('無法載入最新消息:', error);
+          document.getElementById('latest-news-list').innerHTML = '<li>無法載入最新消息，請稍後再試。</li>';
+        });
+    });
   </script>
 </body>
 </html>
