@@ -109,7 +109,7 @@ main {
 /* 針對沒有橫幅的頁面 (例如教授頁、公告頁) */
 .no-banner-main {
   padding-top: 3rem; /* 改用 padding 確保空間不會被摺疊 */
-  padding-bottom: 3rem;
+  padding-bottom: 0;
 }
 
 /* 內容卡片 */
@@ -944,16 +944,6 @@ footer {
   padding-bottom: 0.75rem;
   margin-bottom: 0;
   display: inline-block; 
-}
-
-/* 確保 <main> 內容 (最新消息卡片) 和橫幅有間距 */
-main {
-  /* --- 修改點：將 main 的 max-width 設為 none，padding 設為 0，
-     以便 page-hero-title-section 能夠滿版。
-     內容卡片的 max-width 和 margin-left/right 會負責置中。 --- */
-  max-width: none; /* 移除 max-width 限制 */
-  margin-top: 0;   /* 移除預設的 main-top，讓橫幅頂部緊貼 header */
-  padding: 0;      /* 移除 main 預設的左右 padding */
 }
 
 /* ===========================
