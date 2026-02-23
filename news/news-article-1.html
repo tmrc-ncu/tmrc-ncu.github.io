@@ -58,19 +58,14 @@
     </div>
   </footer>
   
-  <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
-
   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
   <script>
-    window.onscroll = () => {
-      const btn = document.getElementById("scrollTopBtn");
-      btn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
-    };
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // 讓頁尾版權年份自動更新
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // 回到頂部按鈕功能
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
 </body>
 </html>
