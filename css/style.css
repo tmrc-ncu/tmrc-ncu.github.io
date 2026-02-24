@@ -680,9 +680,23 @@ footer {
   flex-direction: column;
   /* 限制寬度不要無限延伸 */
   flex: 0 1 auto; 
-  
-  /* 上下撐開：TEL黏頂，Copyright黏底 */
-  justify-content: space-between; 
+  justify-content: flex-start;
+}
+
+/* 調整版權宣告的間距 */
+.copyright-info {
+  /* 增加一個 margin-top，可根據視覺微調這個數值 (例如 2.5rem 或 3rem) */
+  margin-top: 3.2rem; 
+}
+
+.copyright-info p {
+  margin: 0;
+  font-size: 0.9rem; 
+  opacity: 0.7; 
+  white-space: nowrap;
+  text-align: left; 
+  /* 調整行高讓文字重心跟左邊一致 */
+  line-height: 1.4; 
 }
 
 /* 聯絡資訊 */
