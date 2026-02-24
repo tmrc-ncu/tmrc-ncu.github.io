@@ -652,7 +652,7 @@ footer {
   flex-direction: column;
   /* 限制寬度不要無限延伸 */
   flex: 0 1 auto; 
-  gap: 0.9rem; 
+  gap: 1rem;   /* 中英文標題之間的距離 */
 }
 
 .zh-title h4 {
