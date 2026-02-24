@@ -699,6 +699,18 @@ footer {
   white-space: nowrap;
 }
 
+/* --- Email 顏色設定 --- */
+.contact-info a {
+  color: white;             /* 設定顏色為白色 */
+  text-decoration: none;    /* 移除底線 */
+  transition: opacity 0.3s; /* 增加過場效果 */
+}
+
+.contact-info a:hover {
+  opacity: 0.8;             /* 滑鼠懸停時稍微變淡，讓使用者知道可以點擊 */
+  text-decoration: underline; /* 懸停時顯示底線 */
+}
+
 /* 版權宣告 */
 .copyright-info p {
   margin: 0;
