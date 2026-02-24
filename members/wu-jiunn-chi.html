@@ -167,102 +167,106 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const rowsPerPage = 10; // *** 在這裡設定每頁顯示幾筆資料 ***
+      // 1. 定義計畫資料 (僅保留 2022 年後執行之計畫)
+      const projectData = [
+        { role: " ", name: " ", title: " ", date: " ", agency: " " },
+        { role: " ", name: " ", title: " ", date: " ", agency: " " }
+      ];
+
+      const rowsPerPage = 10;
       const tableBody = document.getElementById("projectTableBody");
-      const allRows = tableBody.getElementsByTagName("tr");
-      const totalRows = allRows.length;
-      const totalPages = Math.ceil(totalRows / rowsPerPage);
       const paginationControls = document.getElementById("paginationControls");
       let currentPage = 1;
 
-      // 顯示特定頁面的函式
-      function showPage(page) {
-        // 先隱藏所有資料列
-        for (let i = 0; i < totalRows; i++) {
-          allRows[i].style.display = "none";
-        }
-        
-        // 計算並顯示當前頁面的資料列
+      // 渲染表格資料
+      function renderTable(page) {
+        tableBody.innerHTML = ""; // 清空表格
+        const totalRows = projectData.length;
         const startIndex = (page - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
-        
-        for (let i = startIndex; i < endIndex; i++) {
-          allRows[i].style.display = ""; // 恢復為表格預設 display (通常是 "table-row")
-        }
-      }
+        const pageItems = projectData.slice(startIndex, endIndex);
 
-      // 建立分頁按鈕的函式
-      function setupPagination() {
-        // 清空現有按鈕
-        paginationControls.innerHTML = "";
-
-        // 建立 "上一頁" 按鈕
-        let prevButton = document.createElement("a");
-        prevButton.href = "#projectTable"; // 點擊時跳轉到表格頂部
-        prevButton.innerText = "«";
-        prevButton.classList.add("pagination-btn");
-        if (currentPage === 1) {
-          prevButton.classList.add("disabled");
+        if (pageItems.length === 0) {
+          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
+          return;
         }
-        prevButton.addEventListener("click", function(e) {
-          e.preventDefault();
-          if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-            setupPagination();
-          }
+
+        pageItems.forEach(item => {     
+          const row = `<tr>
+            <td>${item.role}</td>
+            <td>${item.name}</td>
+            <td>${item.title}</td>
+            <td class="col-date">${item.date}</td>
+            <td>${item.agency}</td>
+          </tr>`;
+          tableBody.innerHTML += row;
         });
-        paginationControls.appendChild(prevButton);
 
-        // 建立數字按鈕
-        for (let i = 1; i <= totalPages; i++) {
-          let pageButton = document.createElement("a");
-          pageButton.href = "#projectTable";
-          pageButton.innerText = i;
-          pageButton.classList.add("pagination-btn");
-          if (i === currentPage) {
-            pageButton.classList.add("active");
-          }
-          
-          pageButton.addEventListener("click", function(e) {
-            e.preventDefault();
-            currentPage = i;
-            showPage(currentPage);
-            setupPagination();
-          });
-          paginationControls.appendChild(pageButton);
-        }
-
-        // 建立 "下一頁" 按鈕
-        let nextButton = document.createElement("a");
-        nextButton.href = "#projectTable";
-        nextButton.innerText = "»";
-        nextButton.classList.add("pagination-btn");
-        if (currentPage === totalPages) {
-          nextButton.classList.add("disabled");
-        }
-        nextButton.addEventListener("click", function(e) {
-          e.preventDefault();
-          if (currentPage < totalPages) {
-            currentPage++;
-            showPage(currentPage);
-            setupPagination();
-          }
-        });
-        paginationControls.appendChild(nextButton);
-      }
-
-      // 初始化：顯示第一頁並建立按鈕
-      if (totalRows > 0) {
-        showPage(currentPage);
         setupPagination();
-      } else {
-         // 如果沒有資料，顯示提示
-         const tableContainer = document.querySelector(".table-container");
-         if(tableContainer) {
-            tableContainer.innerHTML = "<p>目前沒有研究計畫資料。</p>";
-         }
       }
+
+      // 建立分頁按鈕
+      function setupPagination() {
+        paginationControls.innerHTML = "";
+        const totalRows = projectData.length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+        if (totalPages <= 1) return;
+
+        function createBtn(text, pageNum, isActive = false, isDisabled = false) {
+          const btn = document.createElement("a");
+          btn.href = "#projectTable";
+          btn.innerText = text;
+          btn.classList.add("pagination-btn");
+          if (isActive) btn.classList.add("active");
+          if (isDisabled) btn.classList.add("disabled");
+          if (!isDisabled) {
+            btn.addEventListener("click", function(e) {
+              e.preventDefault();
+              if (currentPage !== pageNum) {
+                currentPage = pageNum;
+                renderTable(currentPage);
+              }
+            });
+          }
+          return btn;
+        }
+
+        paginationControls.appendChild(createBtn("«", 1, false, currentPage === 1));
+        paginationControls.appendChild(createBtn("<", currentPage - 1, false, currentPage === 1));
+
+        const maxPageButtons = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
+        let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+        if (endPage - startPage + 1 < maxPageButtons) {
+          startPage = Math.max(1, endPage - maxPageButtons + 1);
+        }
+
+        if (startPage > 1) {
+          const dots = document.createElement("span");
+          dots.innerText = "...";
+          dots.classList.add("pagination-btn", "disabled");
+          paginationControls.appendChild(dots);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+          paginationControls.appendChild(createBtn(i, i, i === currentPage, false));
+        }
+
+        if (endPage < totalPages) {
+          const dots = document.createElement("span");
+          dots.innerText = "...";
+          dots.classList.add("pagination-btn", "disabled");
+          paginationControls.appendChild(dots);
+        }
+
+        paginationControls.appendChild(createBtn(">", currentPage + 1, false, currentPage === totalPages));
+        paginationControls.appendChild(createBtn("»", totalPages, false, currentPage === totalPages));
+      }
+
+      // 初始化
+      renderTable(currentPage);
     });
   </script>
 </body>
