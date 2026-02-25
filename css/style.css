@@ -664,6 +664,11 @@ footer {
   white-space: nowrap;
 }
 
+.en-title {
+  margin-top: auto;  /* 新增：將英文推向底部 */
+  padding-top: 1rem; /* 新增：確保最小間距 */
+}
+
 .en-title p {
   font-size: 0.85rem;
   color: #cbd5e1; 
@@ -685,8 +690,8 @@ footer {
 
 /* 調整版權宣告的間距 */
 .copyright-info {
-  /* 增加一個 margin-top，可根據視覺微調這個數值 (例如 0.8rem ~ 1.2rem之間) */
-  margin-top: 1rem; 
+  margin-top: auto;  /* 使其自動貼齊底部 */
+  padding-top: 1rem; /* 確保內容不會完全黏在上方資訊 */
 }
 
 .copyright-info p {
