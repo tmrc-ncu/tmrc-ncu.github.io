@@ -686,7 +686,7 @@ footer {
 /* 調整版權宣告的間距 */
 .copyright-info {
   /* 增加一個 margin-top，可根據視覺微調這個數值 (例如 0.8rem ~ 1.2rem) */
-  margin-top: 1.2rem; 
+  margin-top: 0.9rem; 
 }
 
 .copyright-info p {
