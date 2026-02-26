@@ -42,10 +42,10 @@
       font-family: Arial, sans-serif;
     }
 
-    /* 5. 補助單位 (第5欄): 設定最小寬度 (曹老師資料較短，其實不設也沒關係，但為了統一性保留) */
+    /* 5. 補助單位 (第5欄): 設定最小寬度 */
     #projectTable th:nth-child(5),
     #projectTable td:nth-child(5) {
-      min-width: 100px; /* 稍微縮小，因為多為"科技部"等短名 */
+      min-width: 100px; 
       line-height: 1.4; 
     }
   </style>
@@ -120,7 +120,7 @@
         專線電話 (TEL): 03-4267335<br>
         校內分機 (Campus Extension): 34335<br>
         傳真電話 (Fax): 03-4254501<br>
-        E-mail: <a href="junwu@cc.ncu.edu.tw" style="text-decoration: none;">junwu@cc.ncu.edu.tw</a><br>
+        E-mail: <a href="mailto:junwu@cc.ncu.edu.tw" style="text-decoration: none;">junwu@cc.ncu.edu.tw</a><br>
         實驗室 (Laboratory): 微尺度熱流實驗室 E2-104<br>
       </p>
 
@@ -157,21 +157,21 @@
   </footer>
   
   <script>
-    // 讓頁尾版權年份自動更新
     document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
-  
-  <script>
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. 定義計畫資料 (僅保留 2022 年後執行之計畫)
+      // 1. 定義計畫資料 (來自附檔資訊)
       const projectData = [
-        { role: " ", name: " ", title: " ", date: " ", agency: " " },
-        { role: " ", name: " ", title: " ", date: " ", agency: " " }
+        { role: "研究員", name: "吳俊諆", title: "前瞻氮化鎵晶片與其在之高效率高功率密度電源轉換器之應用，子計畫四-高功率密度氮化鎵轉換器模組之熱管理", date: "2024/5/1~2029/4/30", agency: "國科會" },
+        { role: "協同主持人", name: "吳俊諆", title: "永續能源跨域應用人才培育聯盟計畫-永續低碳氫能人才培育聯盟計畫", date: "2026/2/1~2028/1/31", agency: "教育部" },
+        { role: "共同主持人", name: "吳俊諆", title: "高功率多溫層老化測試爐開發研究", date: "2026/1/1~2027/12/31", agency: "產學合作" },
+        { role: "共同主持人", name: "吳俊諆", title: "IC測試設備均溫控制技術研究", date: "2024/2/1~2025/1/31", agency: "產學合作" },
+        { role: "協同主持人", name: "吳俊諆", title: "永續能源跨域應用人才培育聯盟計畫-智慧電網與儲能人才培育聯盟中心計畫", date: "2023/2/1~2025/1/31", agency: "教育部" },
+        { role: "協同主持人", name: "吳俊諆", title: "永續能源跨域應用人才培育聯盟計畫-智慧電網與儲能人才培育聯盟中心計畫", date: "2022/5/1~2025/1/31", agency: "教育部" }
       ];
 
       const rowsPerPage = 10;
@@ -179,9 +179,8 @@
       const paginationControls = document.getElementById("paginationControls");
       let currentPage = 1;
 
-      // 渲染表格資料
       function renderTable(page) {
-        tableBody.innerHTML = ""; // 清空表格
+        tableBody.innerHTML = "";
         const totalRows = projectData.length;
         const startIndex = (page - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
@@ -192,7 +191,7 @@
           return;
         }
 
-        pageItems.forEach(item => {     
+        pageItems.forEach(item => {      
           const row = `<tr>
             <td>${item.role}</td>
             <td>${item.name}</td>
@@ -206,7 +205,6 @@
         setupPagination();
       }
 
-      // 建立分頁按鈕
       function setupPagination() {
         paginationControls.innerHTML = "";
         const totalRows = projectData.length;
@@ -244,29 +242,14 @@
           startPage = Math.max(1, endPage - maxPageButtons + 1);
         }
 
-        if (startPage > 1) {
-          const dots = document.createElement("span");
-          dots.innerText = "...";
-          dots.classList.add("pagination-btn", "disabled");
-          paginationControls.appendChild(dots);
-        }
-
         for (let i = startPage; i <= endPage; i++) {
           paginationControls.appendChild(createBtn(i, i, i === currentPage, false));
-        }
-
-        if (endPage < totalPages) {
-          const dots = document.createElement("span");
-          dots.innerText = "...";
-          dots.classList.add("pagination-btn", "disabled");
-          paginationControls.appendChild(dots);
         }
 
         paginationControls.appendChild(createBtn(">", currentPage + 1, false, currentPage === totalPages));
         paginationControls.appendChild(createBtn("»", totalPages, false, currentPage === totalPages));
       }
 
-      // 初始化
       renderTable(currentPage);
     });
   </script>
