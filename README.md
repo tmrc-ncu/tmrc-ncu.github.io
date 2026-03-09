@@ -1,8 +1,7 @@
 #熱管理技術研究中心
 
-這是一個用於展示熱傳導與強迫對流相關資料的靜態網站，使用 HTML + CSS 撰寫，並透過 GitHub Pages 部署。
+這是一個用於展示熱管理技術研究中心相關資料的靜態網站，使用 HTML + CSS 撰寫，並透過 GitHub Pages 部署。
 
-📁 網站資料夾：`熱傳導強迫對流/`  
-🌐 網站連結：[點此前往](https://htel120.github.io/-/)
+🌐 網站連結：[點此前往](https://tmrc-ncu.github.io/)
 
 ## 
