@@ -1,4 +1,4 @@
-# 熱管理中心（TMRC）網站原始碼
+# 熱管理技術研究中心（TMRC）網站原始碼
 
 本資料為中央大學熱管理中心（Thermal Management Research Center, TMRC）網站之原始碼檔案。
 
