@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest News - Thermal Management Research Center</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1><img src="images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="index_en.html">Home</a>
+      <a href="research_en.html">Research</a>
+      <a href="members_en.html">Faculty</a>
+      <a href="news_en.html">News</a> 
+      <a href="news.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero-title-section hero-news">
+      <div class="page-hero-title-content">
+        <h2>Latest News</h2>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <ul class="news">
+        <li><a href="news/Establishment-of-TMRC.html">Official Inauguration of the Thermal Management Research Center</a></li>
+        <!-- Add more English news items here -->
+        <li><a href="#"> </a></li>
+        <li><a href="#"> </a></li>
+      </ul>
+      
+    </section>
+  </main>
+
+   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+
+   <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="zh-title">
+          <h4>National Central University</h4>
+          <h4>Thermal Management Research Center</h4>
+        </div>
+        <div class="en-title">
+          <p>THERMAL MANAGEMENT RESEARCH CENTER,</p>
+          <p>NATIONAL CENTRAL UNIVERSITY</p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>TEL : +886-3-4267368</p>
+          <p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p>
+          <p>Contact : Ms. Peng</p>
+          <p>ADD : Dept. of Mechanical Engineering, No. 300, Zhongda Rd., Zhongli Dist., Taoyuan City 320317, Taiwan</p>
+        </div>
+        <div class="copyright-info">
+          <p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Automatically update the copyright year in the footer[cite: 2, 4]
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    // Scroll to top button functionality[cite: 2, 4]
+    window.onscroll = () => { 
+        document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; 
+    };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  </script>
+</body>
+</html>
