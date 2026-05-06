@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Management Research Center | NCU</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> 
+      Thermal Management Research Center
+    </h1>
+    <nav>
+      <a href="index_en.html">Home</a>
+      <a href="research_en.html">Research</a>
+      <a href="members_en.html">Faculty</a>
+      <a href="news_en.html">News</a>
+      <a href="index.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Welcome to TMRC</h2>
+      <p>Affiliated with the College of Engineering at National Central University, the Thermal Management Research Center (TMRC) aims to integrate R&D technologies across thermal-fluidics, manufacturing, and materials science. We focus on high-efficiency cooling solutions for electronic components and equipment.</p>
+      <p>As AI and high-performance computing continue to evolve, chip power density and heat generation have risen sharply. Thermal management has become a decisive challenge for the IT and electronics industries. We are dedicated to providing chip-to-system level solutions and cultivating interdisciplinary talent to support global industries in meeting future cooling challenges.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="content-card news">
+      <h2>Latest News</h2>
+      <ul id="latest-news-list">
+        <li>Loading news...</li>
+      </ul>
+      <div class="view-all-container">
+        <a href="news_en.html" class="view-all-link">
+          View All News &raquo;
+        </a>
+      </div>
+    </section>
+  </main> 
+ 
+   <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="zh-title">
+          <h4>National Central University</h4>
+          <h4>Thermal Management Research Center</h4>
+        </div>
+        <div class="en-title">
+          <p>THERMAL MANAGEMENT RESEARCH CENTER,</p>
+          <p>NATIONAL CENTRAL UNIVERSITY</p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>TEL : +886-3-4267368</p>
+          <p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw">tmrc@ncu.edu.tw</a></p>
+          <p>Contact : Ms. Peng</p>
+          <p>ADD : Dept. of Mechanical Engineering, No. 300, Zhongda Rd., Zhongli Dist., Taoyuan City 320317, Taiwan</p>
+        </div>
+        <div class="copyright-info">
+          <p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    window.onscroll = () => { 
+        document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; 
+    };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    // Fetch news from the English news page
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('news_en.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Network error');
+          return response.text();
+        })
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const newsItems = doc.querySelectorAll('ul.news li');
+          const targetList = document.getElementById('latest-news-list');
+          
+          targetList.innerHTML = ''; 
+
+          for (let i = 0; i < 3 && i < newsItems.length; i++) {
+            targetList.appendChild(newsItems[i].cloneNode(true));
+          }
+
+          if(newsItems.length === 0) {
+            targetList.innerHTML = '<li>No news available at the moment.</li>';
+          }
+        })
+        .catch(error => {
+          console.error('Failed to load news:', error);
+          document.getElementById('latest-news-list').innerHTML = '<li>Unable to load news, please try again later.</li>';
+        });
+    });
+  </script>
+</body>
+</html>
