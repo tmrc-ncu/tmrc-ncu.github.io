@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yang, Chien-Yuh - Center Faculty</title>
+  <link rel="stylesheet" href="../css/style.css"> 
+  <style>
+    #projectTable td { vertical-align: middle; padding-top: 10px; padding-bottom: 10px; }
+    #projectTable th:nth-child(1), #projectTable td:nth-child(1) { white-space: nowrap; width: 1%; }
+    #projectTable th:nth-child(2), #projectTable td:nth-child(2) { white-space: nowrap; width: 1%; }
+    #projectTable td:nth-child(3) { white-space: normal; min-width: 280px; line-height: 1.5; }
+    #projectTable td:nth-child(4) { white-space: nowrap; font-family: Arial, sans-serif; }
+    #projectTable th:nth-child(5), #projectTable td:nth-child(5) { white-space: nowrap; width: 1%; }
+  </style>
+</head>
+<body class="lang-en">
+  <header>
+    <h1><img src="../images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="../index_en.html">Home</a><a href="../research_en.html">Research</a><a href="../members_en.html">Faculty</a><a href="../news_en.html">News</a> 
+      <a href="../members/楊建裕.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+  <main class="no-banner-main">
+    <section class="content-card article-content">
+      <div style="display: flex; align-items: center; margin-bottom: 2rem; flex-wrap: wrap;">
+        <img src="../images/楊建裕.jpg" alt="Yang, Chien-Yuh" style="width: 170px; height: 255px; object-fit: cover; border-radius: 8px; margin-right: 2rem; border: 1px solid #e0e0e0;">
+        <div><h2 style="border-bottom: none; margin-bottom: 0.5rem;">Yang, Chien-Yuh</h2></div>
+      </div>
+      <h3>Biography</h3><p>Highest Degree:</p><p>Ph.D., Pennsylvania State University, USA</p>
+      <h3>Team Members</h3><p>Ph.D. Students: 6<br>Master Students: 7</p>
+      <h3>Research Areas</h3>
+      <p>Heat Exchanger Design<br>Heat Pipe Technology<br>Heat Transfer Enhancement<br>Micro Scale Heat Transfer<br>Electronic Devices Thermal Management<br>Air-Condition and Refrigeration<br>Solar Energy</p>
+      <h3>Research Projects</h3>
+      <div class="table-container">
+        <table class="research-table" id="projectTable">
+          <thead><tr><th>Role</th><th>Name</th><th>Project Title</th><th>Duration</th><th>Funding Agency</th></tr></thead>
+          <tbody id="projectTableBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination-container" id="paginationControls"></div>
+      <h3>Contact Information</h3>
+      <p>Office: E4-466<br>Direct Line (TEL): +886-3-4267347<br>Campus Extension: 34347<br>Fax: +886-3-4254501<br>E-mail: <a href="mailto:cyyang@ncu.edu.tw" style="text-decoration: none;">cyyang@ncu.edu.tw</a><br>Laboratory: Heat Exchanger Lab E2-105, E2-115, Wind Tunnel Lab H3-104<br>Lab Extension: 34368</p>
+      <a href="../members_en.html" class="back-link">&larr; Back to Center Faculty</a>
+    </section>
+  </main>
+  <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+  <footer><div class="footer-container"><div class="footer-left"><div class="zh-title"><h4>NATIONAL CENTRAL UNIVERSITY</h4><h4>THERMAL MANAGEMENT RESEARCH CENTER</h4></div></div><div class="footer-right"><div class="contact-info"><p>TEL : +886-3-4267368</p><p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p><p>Contact : Ms. Peng</p><p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p></div><div class="copyright-info"><p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p></div></div></div></footer>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    document.addEventListener("DOMContentLoaded", function() {
+      const projectData = [
+        {role:"PI",name:"Yang, Chien-Yuh",title:"兩相蒸發器性能增強研究",date:"2025/03/01-2026/02/28",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"兩相冷板開發及性能測試研究計畫",date:"2025/02/01-2026/01/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"浸泡式冷卻系統加熱及冷卻熱傳增強研究",date:"2025/01/01-2026/12/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"兩相蒸發器開發研究計畫",date:"2024/08/01-2025/07/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"垂直擺放多熱源池沸騰熱傳性能研究",date:"2024/08/01-2025/07/31",agency:"國科會"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"液態金屬介面層散熱機制先期研究",date:"2024/07/01-2025/06/30",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"銅-鋁腐蝕對熱傳性能能影響研究計畫",date:"2024/05/01-2025/04/30",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"廢氣處理爐熱回收熱交換器",date:"2024/05/01-2025/04/30",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"微熱交換器流動沸騰熱傳性能研究",date:"2024/04/01-2025/03/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"IC測試設備均溫控制技術研究",date:"2024/02/01-2025/12/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"高性能蒸發冷卻系統熱交換器開發",date:"2023/01/01-2024/12/31",agency:"國科會"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"空調系統最佳運轉策略模型研究計畫",date:"2023/10/01-2024/09/30",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"微流道熱交換器流動沸騰熱傳增強研究",date:"2021/08/01-2024/07/31",agency:"國科會"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"功率模組微流道冷板開發及性能評估計畫",date:"2023/06/01-2024/05/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"低溫熱管結凍-解凍熱傳性能測試分析研究",date:"2023/05/02-2023/11/30",agency:"國家太空中心"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"高性能蒸發冷卻系統熱交換器開發<br>(雙邊協議擴充加值國際合作研究計畫)",date:"2022/01/01-2023/12/31",agency:"國科會"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"面板烤爐熱回收熱交換器研究計畫",date:"2023/01/01-2023/12/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"高功率密度QSFP-DD連接模組冷卻技術研究(專題研究計畫)",date:"2022/11/01-2023/10/31",agency:"國科會"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"高功率密度QSFP-DD連接模組冷卻技術研究",date:"2022/11/01-2023/10/31",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"EnergyPlus模型之空調負荷預測技術開發研究計畫",date:"2022/10/01-2023/09/30",agency:"產學合作"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"物聯網移動冷鏈解決方案",date:"2021/06/01-2023/05/31",agency:"國科會"},
+        {role:"PI",name:"Yang, Chien-Yuh",title:"物聯網移動冷鏈解決方案",date:"2021/06/01-2023/05/31",agency:"產學合作"}
+      ];
+      let currentPage=1;const rowsPerPage=10,tb=document.getElementById("projectTableBody"),pc=document.getElementById("paginationControls");
+      function renderTable(p){tb.innerHTML="";let s=(p-1)*rowsPerPage,e=Math.min(s+rowsPerPage,projectData.length),arr=projectData.slice(s,e);if(!arr.length){tb.innerHTML="<tr><td colspan='5'>No data available.</td></tr>";return;}arr.forEach(i=>{tb.innerHTML+=`<tr><td>${i.role}</td><td>${i.name}</td><td>${i.title}</td><td class="col-date">${i.date}</td><td>${i.agency}</td></tr>`;});setupPagination();}
+      function setupPagination(){pc.innerHTML="";const t=Math.ceil(projectData.length/rowsPerPage);if(t<=1)return;function c(tx,p,a,d){const b=document.createElement("a");b.href="#projectTable";b.innerText=tx;b.className="pagination-btn"+(a?" active":"")+(d?" disabled":"");if(!d)b.onclick=e=>{e.preventDefault();if(currentPage!==p){currentPage=p;renderTable(currentPage);}};return b;}pc.append(c("«",1,0,currentPage===1),c("<",currentPage-1,0,currentPage===1));let s=Math.max(1,currentPage-2),e=Math.min(t,s+4);if(e-s<4)s=Math.max(1,e-4);if(s>1){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}for(let i=s;i<=e;i++)pc.append(c(i,i,i===currentPage,0));if(e<t){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}pc.append(c(">",currentPage+1,0,currentPage===t),c("»",t,0,currentPage===t));}
+      renderTable(currentPage);
+    });
+  </script>
+</body>
+</html>
