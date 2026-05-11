@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ho, Jeng-Rong - Center Faculty</title>
+  <link rel="stylesheet" href="../css/style.css"> 
+  <style>
+    #projectTable td { vertical-align: middle; padding-top: 10px; padding-bottom: 10px; }
+    #projectTable th:nth-child(1), #projectTable td:nth-child(1) { white-space: nowrap; width: 1%; }
+    #projectTable th:nth-child(2), #projectTable td:nth-child(2) { white-space: nowrap; width: 1%; }
+    #projectTable td:nth-child(3) { white-space: normal; min-width: 280px; line-height: 1.5; }
+    #projectTable td:nth-child(4) { white-space: nowrap; font-family: Arial, sans-serif; }
+    #projectTable th:nth-child(5), #projectTable td:nth-child(5) { white-space: nowrap; width: 1%; }
+  </style>
+</head>
+<body class="lang-en">
+  <header>
+    <h1><img src="../images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="../index_en.html">Home</a><a href="../research_en.html">Research</a><a href="../members_en.html">Faculty</a><a href="../news_en.html">News</a> 
+      <a href="../members/何正榮.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+  <main class="no-banner-main">
+    <section class="content-card article-content">
+      <div style="display: flex; align-items: center; margin-bottom: 2rem; flex-wrap: wrap;">
+        <img src="../images/何正榮.jpg" alt="Ho, Jeng-Rong" style="width: 170px; height: 255px; object-fit: cover; border-radius: 8px; margin-right: 2rem; border: 1px solid #e0e0e0;">
+        <div><h2 style="border-bottom: none; margin-bottom: 0.5rem;">Ho, Jeng-Rong</h2></div>
+      </div>
+      <h3>Biography</h3><p>Highest Degree:</p><p>Ph.D., Department of Mechanical Engineering, University of California, USA</p>
+      <h3>Team Members</h3><p>Ph.D. Students: TBD<br>Master Students: TBD</p>
+      <h3>Research Areas</h3>
+      <p>Transport Phenomena of Heat and Fluids<br>Laser Micro-machining, Fabrication, and Material Processing<br>Processing and Forming of Transparent Hard and Brittle Materials<br>Laser Additive Manufacturing<br>Thin Film Fabrication and Patterning<br>Micro-LED Optical Transposition Technology<br>Fabrication of Flexible Electronics and Opto-electronics</p>
+      <h3>Research Projects</h3>
+      <div class="table-container">
+        <table class="research-table" id="projectTable">
+          <thead><tr><th>Role</th><th>Name</th><th>Project Title</th><th>Duration</th><th>Funding Agency</th></tr></thead>
+          <tbody id="projectTableBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination-container" id="paginationControls"></div>
+      <h3>Contact Information</h3>
+      <p>Office: E4-267<br>Direct Line (TEL): +886-3-4267309<br>Campus Extension: 34309<br>Fax: +886-3-4254501<br>E-mail: <a href="mailto:jrho@ncu.edu.tw" style="text-decoration: none;">jrho@ncu.edu.tw</a><br>Laboratory: Laser Application and Material Processing Lab E4-256<br>Lab Extension: 37323</p>
+      <a href="../members_en.html" class="back-link">&larr; Back to Center Faculty</a>
+    </section>
+  </main>
+  <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+  <footer><div class="footer-container"><div class="footer-left"><div class="zh-title"><h4>NATIONAL CENTRAL UNIVERSITY</h4><h4>THERMAL MANAGEMENT RESEARCH CENTER</h4></div></div><div class="footer-right"><div class="contact-info"><p>TEL : +886-3-4267368</p><p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p><p>Contact : Ms. Peng</p><p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p></div><div class="copyright-info"><p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p></div></div></div></footer>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    document.addEventListener("DOMContentLoaded", function() {
+      const projectData = [
+        {role:"PI",name:"Ho, Jeng-Rong",title:"複合雷射圖案活化與無電鍍應用於藍寶石晶圓之微加工與金屬化特徵研究",date:"2024/08/01-2025/07/31",agency:"國科會"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"具人工智能安全與檢測感知能力之高功能基板精密複合加工系統研發",date:"2021/06/01-2025/05/31",agency:"國科會"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"高精度、高頻石英振盪器設計與關鍵製程技術研發",date:"2024/06/01-2025/05/31",agency:"國科會/產學合作"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"定量皮升級雷射轉印焊料技術",date:"2024/01/01-2024/12/31",agency:"產學合作"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"石英振盪器先進製程關鍵技術研發",date:"2022/06/01-2024/10/31",agency:"國科會/產學合作"},
+        {role:"Co-PI",name:"Ho, Jeng-Rong",title:"學門主題式計畫-5G智慧自動化工廠之實現-以藍寶石基板加工為例",date:"2021/08/01-2024/07/31",agency:"國科會"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"以貼片機平台架構為基礎之自動光學檢測與雷射除膠試量產機建置",date:"2023/09/01-2024/05/31",agency:"產學合作"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"SiC晶圓表面軟化改質技術與試量產設備開發/應用於研磨砂輪積屑移除之超音波輔助沖洗設備開發",date:"2023/03/01-2024/04/30",agency:"產學合作"},
+        {role:"Co-PI",name:"Ho, Jeng-Rong",title:"瑕疵影像解析度增強與數據擴增及AI辨識模型建置",date:"2023/03/01-2024/02/29",agency:"產學合作"},
+        {role:"Co-PI",name:"Ho, Jeng-Rong",title:"ALD生產品質AI預測模型及製程參數最佳化開發",date:"2023/03/01-2024/02/29",agency:"產學合作"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"智慧取放定位技術開發",date:"2022/07/01-2023/06/30",agency:"產學合作"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"微米發光元件自對準之雷射焊接技術",date:"2022/05/01-2023/04/30",agency:"產學合作"},
+        {role:"PI",name:"Ho, Jeng-Rong",title:"印刷電路板之雷射製程技術研發–分板、穴孔製作與銅箔封合",date:"2022/03/01-2023/02/28",agency:"產學合作"},
+        {role:"Co-PI",name:"Ho, Jeng-Rong",title:"晶圓缺陷取樣最佳策略之人工智慧模型建置",date:"2022/03/01-2023/02/28",agency:"產學合作"}
+      ];
+      let currentPage=1;const rowsPerPage=10,tb=document.getElementById("projectTableBody"),pc=document.getElementById("paginationControls");
+      function renderTable(p){tb.innerHTML="";let s=(p-1)*rowsPerPage,e=Math.min(s+rowsPerPage,projectData.length),arr=projectData.slice(s,e);if(!arr.length){tb.innerHTML="<tr><td colspan='5'>No data available.</td></tr>";return;}arr.forEach(i=>{let displayTitle=i.title.replace(/([(（])/g,'<br>$1');let displayAgency=i.agency.replace(/(.+)(股份有限公司)/g,'$1<br>$2');tb.innerHTML+=`<tr><td>${i.role}</td><td>${i.name}</td><td>${displayTitle}</td><td class="col-date">${i.date}</td><td>${displayAgency}</td></tr>`;});setupPagination();}
+      function setupPagination(){pc.innerHTML="";const t=Math.ceil(projectData.length/rowsPerPage);if(t<=1)return;function c(tx,p,a,d){const b=document.createElement("a");b.href="#projectTable";b.innerText=tx;b.className="pagination-btn"+(a?" active":"")+(d?" disabled":"");if(!d)b.onclick=e=>{e.preventDefault();if(currentPage!==p){currentPage=p;renderTable(currentPage);}};return b;}pc.append(c("«",1,0,currentPage===1),c("<",currentPage-1,0,currentPage===1));let s=Math.max(1,currentPage-2),e=Math.min(t,s+4);if(e-s<4)s=Math.max(1,e-4);if(s>1){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}for(let i=s;i<=e;i++)pc.append(c(i,i,i===currentPage,0));if(e<t){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}pc.append(c(">",currentPage+1,0,currentPage===t),c("»",t,0,currentPage===t));}
+      renderTable(currentPage);
+    });
+  </script>
+</body>
+</html>
