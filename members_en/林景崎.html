@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lin, Jing-Chie - Center Faculty</title>
+  <link rel="stylesheet" href="../css/style.css"> 
+  <style>
+    #projectTable td { vertical-align: middle; padding-top: 10px; padding-bottom: 10px; }
+    #projectTable th:nth-child(1), #projectTable td:nth-child(1) { white-space: nowrap; width: 1%; }
+    #projectTable th:nth-child(2), #projectTable td:nth-child(2) { white-space: nowrap; width: 1%; }
+    #projectTable td:nth-child(3) { white-space: normal; min-width: 280px; line-height: 1.5; }
+    #projectTable td:nth-child(4) { white-space: nowrap; font-family: Arial, sans-serif; }
+    #projectTable th:nth-child(5), #projectTable td:nth-child(5) { min-width: 100px; line-height: 1.4; }
+  </style>
+</head>
+<body class="lang-en">
+  <header>
+    <h1><img src="../images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="../index_en.html">Home</a><a href="../research_en.html">Research</a><a href="../members_en.html">Faculty</a><a href="../news_en.html">News</a> 
+      <a href="../members/林景崎.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+  <main class="no-banner-main">
+    <section class="content-card article-content">
+      <div style="display: flex; align-items: center; margin-bottom: 2rem; flex-wrap: wrap;">
+        <img src="../images/林景崎.jpg" alt="Lin, Jing-Chie" style="width: 170px; height: 255px; object-fit: cover; border-radius: 8px; margin-right: 2rem; border: 1px solid #e0e0e0;">
+        <div><h2 style="border-bottom: none; margin-bottom: 0.5rem;">Lin, Jing-Chie</h2></div>
+      </div>
+      <h3>Biography</h3><p>Highest Degree:</p><p>Ph.D, Department of Materials Science and Engineering, National Tsing Hua University</p>
+      <h3>Team Members</h3><p>Ph.D. Students: TBD<br>Master Students: TBD</p>
+      <h3>Research Areas</h3>
+      <p>Fuel Cell Technology<br>Micronano Processes Technology<br>Material's Corrosion and anti-corrosion<br>SOFC electrode materials<br>Electrochemical Engineering<br>Materials Processes<br>Anti-corrosion Engineering<br>Thin film processes<br>Energy Materials</p>
+      <h3>Research Projects</h3>
+      <div class="table-container">
+        <table class="research-table" id="projectTable">
+          <thead><tr><th>Role</th><th>Name</th><th>Project Title</th><th>Duration</th><th>Funding Agency</th></tr></thead>
+          <tbody id="projectTableBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination-container" id="paginationControls"></div>
+      <h3>Contact Information</h3>
+      <p>Office: E6-B134<br>Direct Line (TEL): +886-3-4227151<br>Campus Extension: 34909<br>Fax: +886-3-4254501<br>E-mail: <a href="mailto:jclincom@cc.ncu.edu.tw" style="text-decoration: none;">jclincom@cc.ncu.edu.tw</a><br>Laboratory: Micro/Nano Materials Lab E6-B117, E6-A001</p>
+      <a href="../members_en.html" class="back-link">&larr; Back to Center Faculty</a>
+    </section>
+  </main>
+  <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+  <footer><div class="footer-container"><div class="footer-left"><div class="zh-title"><h4>NATIONAL CENTRAL UNIVERSITY</h4><h4>THERMAL MANAGEMENT RESEARCH CENTER</h4></div></div><div class="footer-right"><div class="contact-info"><p>TEL : +886-3-4267368</p><p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p><p>Contact : Ms. Peng</p><p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p></div><div class="copyright-info"><p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p></div></div></div></footer>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    document.addEventListener("DOMContentLoaded", function() {
+      const projectData = [
+        {role:"PI",name:"Lin, Jing-Chie",title:"鎳鈷鐵合金微柱之電鍍研製及其在電解水析氧之研究",date:"2022/08/01-2023/07/31",agency:"國科會"}
+      ];
+      let currentPage=1;const rowsPerPage=10,tb=document.getElementById("projectTableBody"),pc=document.getElementById("paginationControls");
+      function renderTable(p){tb.innerHTML="";let s=(p-1)*rowsPerPage,e=Math.min(s+rowsPerPage,projectData.length),arr=projectData.slice(s,e);if(!arr.length){tb.innerHTML="<tr><td colspan='5'>No data available.</td></tr>";return;}arr.forEach(i=>{tb.innerHTML+=`<tr><td>${i.role}</td><td>${i.name}</td><td>${i.title}</td><td class="col-date">${i.date}</td><td>${i.agency}</td></tr>`;});setupPagination();}
+      function setupPagination(){pc.innerHTML="";const t=Math.ceil(projectData.length/rowsPerPage);if(t<=1)return;function c(tx,p,a,d){const b=document.createElement("a");b.href="#projectTable";b.innerText=tx;b.className="pagination-btn"+(a?" active":"")+(d?" disabled":"");if(!d)b.onclick=e=>{e.preventDefault();if(currentPage!==p){currentPage=p;renderTable(currentPage);}};return b;}pc.append(c("«",1,0,currentPage===1),c("<",currentPage-1,0,currentPage===1));let s=Math.max(1,currentPage-2),e=Math.min(t,s+4);if(e-s<4)s=Math.max(1,e-4);if(s>1){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}for(let i=s;i<=e;i++)pc.append(c(i,i,i===currentPage,0));if(e<t){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}pc.append(c(">",currentPage+1,0,currentPage===t),c("»",t,0,currentPage===t));}
+      renderTable(currentPage);
+    });
+  </script>
+</body>
+</html>
