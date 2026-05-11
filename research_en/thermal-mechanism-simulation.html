@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis of Heat Transfer Mechanisms and Temperature Distribution Simulation - Research Projects</title>
+  <link rel="stylesheet" href="../css/style.css"> 
+</head>
+<body class="lang-en">
+  <header>
+    <h1><img src="../images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="../index_en.html">Home</a>
+      <a href="../research_en.html">Research</a>
+      <a href="../members_en.html">Faculty</a>
+      <a href="../news_en.html">News</a> 
+      <a href="../research/晶片元件熱傳機制分析與溫度分布模擬.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+
+  <main class="no-banner-main">
+    <section class="content-card article-content">
+      <h2>Analysis of Heat Transfer Mechanisms and Temperature Distribution Simulation for Chip Components</h2>
+
+      <h3>Research Content</h3>
+      <p>This task is the front-end core of thermal design, focusing on simulating and analyzing the heat transfer mechanisms and temperature distribution of various chip components. Through precise simulation analysis of die temperature distribution, we can understand in detail the temperature profile of each die during operation. These data will directly serve as a crucial basis for subsequent heat exchanger design, ensuring that the design accurately targets the heat sources and formulates appropriate heat exchangers and cooling modules according to actual requirements.</p>
+
+      <figure class="research-image-container">
+        <img src="../images/Chip Power Trend.png" alt="Trend of IC Chip Heat Generation over the Years" style="max-width: 100%; height: auto;">
+        <figcaption>Trend of IC Chip Heat Generation over the Years</figcaption>
+      </figure>
+
+      <a href="../research_en.html" class="back-link">&larr; Back to Research Projects</a>
+    </section>
+  </main>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="zh-title">
+          <h4>NATIONAL CENTRAL UNIVERSITY</h4>
+          <h4>THERMAL MANAGEMENT RESEARCH CENTER</h4>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>TEL : +886-3-4267368</p>
+          <p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p>
+          <p>Contact : Ms. Peng</p>
+          <p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p>
+        </div>
+        <div class="copyright-info">
+          <p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  </script>
+</body>
+</html>
