@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five-Axis Milling Processes and Metal Microstructure Machining - Research Projects</title>
+  <link rel="stylesheet" href="../css/style.css"> 
+</head>
+<body class="lang-en">
+  <header>
+    <h1><img src="../images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="../index_en.html">Home</a>
+      <a href="../research_en.html">Research</a>
+      <a href="../members_en.html">Faculty</a>
+      <a href="../news_en.html">News</a> 
+      <a href="../research/五軸銑削製程，金屬微結構加工.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+
+  <main class="no-banner-main">
+    <section class="content-card article-content">
+      <h2>Five-Axis Milling Processes and Metal Microstructure Machining</h2>
+
+      <h3>Research Content</h3>
+      <p>This research aims to develop precision manufacturing technologies such as five-axis milling and apply them to the manufacturing of high-performance heat exchangers. Although traditional milling technology can process various metal microstructures and is widely used in the industry, with the rapid development of high-power and miniaturized chip technologies, the limitations of traditional milling in tool size and processing capability can hardly meet the design requirements for the precision and complexity of microstructures in future high-efficiency thermal management systems. Moreover, most current processes still produce microstructures using a two-dimensional stacking method, resulting in limitations in structural shape, size, density, and layout design. In contrast, three-dimensional microchannel structures can not only significantly increase the heat exchange surface area but also effectively utilize 3D space for thermal transfer optimization design, improving cooling efficiency. Therefore, our center has introduced a five-axis machining center with high flexibility and precision to develop 3D metal microstructure processes, breaking through the limitations of traditional processes to develop next-generation high-efficiency heat transfer devices.</p>
+
+      <figure class="research-image-container">
+        <img src="../images/CNC Microfabrication Flow.png" alt="Schematic of Five-Axis Machining Center Process" style="max-width: 100%; height: auto;">
+        <figcaption>Schematic of Five-Axis Machining Center Process</figcaption>
+      </figure>
+
+      <a href="../research_en.html" class="back-link">&larr; Back to Research Projects</a>
+    </section>
+  </main>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="zh-title">
+          <h4>NATIONAL CENTRAL UNIVERSITY</h4>
+          <h4>THERMAL MANAGEMENT RESEARCH CENTER</h4>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>TEL : +886-3-4267368</p>
+          <p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p>
+          <p>Contact : Ms. Peng</p>
+          <p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p>
+        </div>
+        <div class="copyright-info">
+          <p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  </script>
+</body>
+</html>
