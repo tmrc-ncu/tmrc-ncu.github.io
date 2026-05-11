@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="lang-en">
   <header>
     <h1><img src="images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
     <nav>
@@ -75,25 +75,25 @@
         <h3>I. Component and System Design Group</h3>
         <p>This group utilizes thermal simulation and fluid flow analysis to design optimized cooling modules tailored to high-power chips, addressing the heat management challenges of next-generation HPC and AI hardware.</p>
         <ol>
-          <li><a href="research/vapor-chamber-cold-plate-fin-design.html">Design of vapor chambers, cold plates, and heat sink fins</a></li>
-          <li><a href="research/thermal-mechanism-simulation.html">Analysis of heat transfer mechanisms and temperature distribution simulation for chip components</a></li>
-          <li><a href="research/heat-exchanger-design.html">Design of single-phase and two-phase heat exchangers</a></li>
+          <li><a href="research_en/vapor-chamber-cold-plate-fin-design.html">Design of vapor chambers, cold plates, and heat sink fins</a></li>
+          <li><a href="research_en/thermal-mechanism-simulation.html">Analysis of heat transfer mechanisms and temperature distribution simulation for chip components</a></li>
+          <li><a href="research_en/heat-exchanger-design.html">Design of single-phase and two-phase heat exchangers</a></li>
         </ol>
 
         <h3>II. Heat Transfer Device Manufacturing Group</h3>
         <p>By combining AI-driven thermal simulation with advanced machinery, this group overcomes traditional manufacturing constraints to develop high-performance cooling devices for next-generation high-density packaging.</p>
         <ol>
-          <li><a href="research/five-axis-milling.html">Five-axis milling processes and metal microstructure machining</a></li>
-          <li><a href="research/ultrafast-laser-processing.html">Ultrafast laser processing (picosecond/femtosecond) and non-contact micromachining technology</a></li>
-          <li><a href="research/microchannel-manufacturing-platform.html">Manufacturing platforms for microchannels and high-density heat dissipation structures</a></li>
+          <li><a href="research_en/five-axis-milling.html">Five-axis milling processes and metal microstructure machining</a></li>
+          <li><a href="research_en/ultrafast-laser-processing.html">Ultrafast laser processing (picosecond/femtosecond) and non-contact micromachining technology</a></li>
+          <li><a href="research_en/microchannel-manufacturing-platform.html">Manufacturing platforms for microchannels and high-density heat dissipation structures</a></li>
         </ol>
 
         <h3>III. Heat Transfer Material Technology Group</h3>
         <p>Focused on material innovation, this group develops thermal interface and structural materials for high-power chip applications, effectively enhancing system cooling efficiency and reliability.</p>
         <ol>
-          <li><a href="research/liquid-metal-tim.html">Development and modification of liquid metal (e.g., Galinstan) thermal interface materials</a></li>
-          <li><a href="research/material-corrosion-improvement.html">Improvement of corrosion and weather resistance for heat exchanger materials (Copper, Aluminum)</a></li>
-          <li><a href="research/filler-design-tim.html">Filler design and rheology control to produce high-$\kappa$ Thermal Interface Materials (TIMs)</a></li>
+          <li><a href="research_en/liquid-metal-tim.html">Development and modification of liquid metal (e.g., Galinstan) thermal interface materials</a></li>
+          <li><a href="research_en/material-corrosion-improvement.html">Improvement of corrosion and weather resistance for heat exchanger materials (Copper, Aluminum)</a></li>
+          <li><a href="research_en/filler-design-tim.html">Filler design and rheology control to produce high-$\kappa$ Thermal Interface Materials (TIMs)</a></li>
         </ol>
       </div>
     </section>
@@ -105,12 +105,8 @@
     <div class="footer-container">
       <div class="footer-left">
         <div class="zh-title">
-          <h4>National Central University</h4>
-          <h4>Thermal Management Research Center</h4>
-        </div>
-        <div class="en-title">
-          <p>THERMAL MANAGEMENT RESEARCH CENTER,</p>
-          <p>NATIONAL CENTRAL UNIVERSITY</p>
+          <h4>NATIONAL CENTRAL UNIVERSITY</h4>
+          <h4>THERMAL MANAGEMENT RESEARCH CENTER</h4>
         </div>
       </div>
       <div class="footer-right">
@@ -118,7 +114,7 @@
           <p>TEL : +886-3-4267368</p>
           <p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p>
           <p>Contact : Ms. Peng</p>
-          <p>ADD : Dept. of Mechanical Engineering, No. 300, Zhongda Rd., Zhongli Dist., Taoyuan City 320317, Taiwan (R.O.C.)</p>
+          <p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p>
         </div>
         <div class="copyright-info">
           <p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p>
@@ -128,10 +124,7 @@
   </footer>
   
   <script>
-    // 自動更新版權年份
     document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-    // 回到頂部按鈕功能
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
