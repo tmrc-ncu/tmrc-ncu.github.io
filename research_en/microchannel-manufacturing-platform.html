@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manufacturing Platforms for Microchannels - Research Projects</title>
+  <link rel="stylesheet" href="../css/style.css"> 
+</head>
+<body class="lang-en">
+  <header>
+    <h1><img src="../images/ncu_logo.png" alt="NCU Logo" class="ncu-logo"> Thermal Management Research Center</h1>
+    <nav>
+      <a href="../index_en.html">Home</a>
+      <a href="../research_en.html">Research</a>
+      <a href="../members_en.html">Faculty</a>
+      <a href="../news_en.html">News</a> 
+      <a href="../research/微流道與高密度散熱結構製程平台.html" style="color: #3b5dc9; font-weight: bold;">中文</a>
+    </nav>
+  </header>
+
+  <main class="no-banner-main">
+    <section class="content-card article-content">
+      <h2>Manufacturing Platforms for Microchannels and High-Density Heat Dissipation Structures</h2>
+
+      <h3>Research Content</h3>
+      <p>Through mechanisms such as laser direct writing, selective ablation, or scanning laser-induced etching, this project can establish micrometer-scale, high-density 3D flow channel structures on materials like glass interposers and cermet substrates. This significantly enhances cooling efficiency and provides novel thermal management solutions for future high-density packaging modules. This research introduces a high-power picosecond/femtosecond laser processing system, combined with AI digital thermal simulation and laser path optimization algorithms, to develop a manufacturing platform suitable for highly complex microchannel designs. The goal is to break through traditional processing limits and realize advanced packaging cooling modules with functional integration, high efficiency, and high reliability.</p>
+
+      <figure class="research-image-container">
+        <img src="../images/Ultrafast Laser Setup.png" alt="Novel Laser Manufacturing Technology" style="max-width: 100%; height: auto;">
+        <figcaption>Development of novel laser manufacturing technologies to create high-efficiency heat dissipation and thermal conduction microstructures in innovative substrate materials</figcaption>
+      </figure>
+
+      <a href="../research_en.html" class="back-link">&larr; Back to Research Projects</a>
+    </section>
+  </main>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()">▲</button>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="zh-title">
+          <h4>NATIONAL CENTRAL UNIVERSITY</h4>
+          <h4>THERMAL MANAGEMENT RESEARCH CENTER</h4>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>TEL : +886-3-4267368</p>
+          <p>EMAIL : <a href="mailto:tmrc@ncu.edu.tw" style="text-decoration: none;">tmrc@ncu.edu.tw</a></p>
+          <p>Contact : Ms. Peng</p>
+          <p>ADD : No. 300, Zhongda Rd., Zhongli District, Taoyuan City 32001, Taiwan (R.O.C.)</p>
+        </div>
+        <div class="copyright-info">
+          <p>&copy; <span id="currentYear"></span> Thermal Management Research Center</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  </script>
+</body>
+</html>
