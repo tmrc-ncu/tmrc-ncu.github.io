@@ -6,48 +6,12 @@
   <title>劉正毓 - 中心成員</title>
   <link rel="stylesheet" href="../css/style.css"> 
   <style>
-    /* --- 表格樣式修正 (最新對齊模式) --- */
-    
-    /* *** 全域表格儲存格設定 (垂直置中) *** */
-    #projectTable td {
-      vertical-align: middle; /* 關鍵：強制垂直置中 */
-      padding-top: 10px;      /* 上下留白 */
-      padding-bottom: 10px;
-    }
-
-    /* 1. 工作類別 (第1欄): 強制不換行 */
-    #projectTable th:nth-child(1),
-    #projectTable td:nth-child(1) {
-      white-space: nowrap;
-      width: 1%;
-    }
-
-    /* 2. 姓名 (第2欄): 強制不換行 */
-    #projectTable th:nth-child(2),
-    #projectTable td:nth-child(2) {
-      white-space: nowrap;
-      width: 1%;
-    }
-
-    /* 3. 計畫名稱 (第3欄): 允許自然換行 */
-    #projectTable td:nth-child(3) {
-      white-space: normal;
-      min-width: 280px;
-      line-height: 1.5;
-    }
-
-    /* 4. 執行期限 (第4欄): 避免換行，統一字體 */
-    #projectTable td:nth-child(4) {
-      white-space: nowrap;
-      font-family: Arial, sans-serif;
-    }
-
-    /* 5. 補助單位 (第5欄): 設定最小寬度 */
-    #projectTable th:nth-child(5),
-    #projectTable td:nth-child(5) {
-      min-width: 100px;
-      line-height: 1.4; 
-    }
+    /* --- 表格樣式修正 --- */
+    #projectTable td { vertical-align: middle; padding-top: 10px; padding-bottom: 10px; }
+    /* 1. 學年度 (第1欄): 強制不換行 */
+    #projectTable th:nth-child(1), #projectTable td:nth-child(1) { white-space: nowrap; width: 1%; }
+    /* 2. 計畫名稱 (第2欄): 允許自然換行 */
+    #projectTable td:nth-child(2) { white-space: normal; min-width: 400px; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -73,15 +37,10 @@
 
       <h3>個人簡介</h3>
       <p>最高學位:</p>
-      <p>
-        Ph.D., Materials Science and Engineering, University of California, Los Angeles, USA
-      </p>
+      <p>Ph.D., Materials Science and Engineering, University of California, Los Angeles, USA</p>
       
       <h3>團隊人數</h3>
-      <p>
-        博士生: 5 人<br>
-        碩士生: 5 人
-      </p>
+      <p>博士生: 5 人<br>碩士生: 5 人</p>
       
       <h3>研究領域</h3>
       <p>
@@ -100,20 +59,15 @@
         <table class="research-table" id="projectTable">
           <thead>
             <tr>
-              <th>工作類別</th>
-              <th>姓名</th>
+              <th>學年度</th>
               <th>計畫名稱</th>
-              <th>執行期限</th>
-              <th>補助單位</th>
             </tr>
           </thead>
-          <tbody id="projectTableBody">
-            </tbody>
+          <tbody id="projectTableBody"></tbody>
         </table>
       </div>
 
-      <div class="pagination-container" id="paginationControls">
-      </div>
+      <div class="pagination-container" id="paginationControls"></div>
 
       <h3>聯絡資訊</h3>
       <p>
@@ -136,10 +90,6 @@
           <h4>國立中央大學</h4>
           <h4>熱管理技術研究中心</h4>
         </div>
-        <div class="en-title">
-          <p>THERMAL MANAGEMENT RESEARCH CENTER,</p>
-          <p>NATIONAL CENTRAL UNIVERSITY</p>
-        </div>
       </div>
       <div class="footer-right">
         <div class="contact-info">
@@ -159,15 +109,29 @@
     document.getElementById("currentYear").textContent = new Date().getFullYear();
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  </script>
 
-  <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. 定義計畫資料 (已移除 amount)
       const projectData = [
-        { role: "主持人", name: "劉正毓", title: "玻璃基板金屬化及低溫低壓銅-銅直接鍵合技術開發暨可靠度分析建模", date: "2025/08/01-2026/07/31", agency: "國科會" },
-        { role: "主持人", name: "劉正毓", title: "建構μ-銲錫合金接點之微結構控制模型及其與電遷移失效機制相關性研究", date: "2025/08/01-2026/07/31", agency: "國科會" },
-        { role: "主持人", name: "劉正毓", title: "開發製作具三維立體Cu6Sn5及(Cu,Ni)6Sn5化合物支架銲點的錫膏", date: "2022/08/01-2025/07/31", agency: "國科會" }
+        { year: "114", title: "高深寬比玻璃基板穿孔雙晶銅微結構填充暨附著層強化技術開發" },
+        { year: "114", title: "自組裝錫膏" },
+        { year: "114", title: "SiC晶背金屬化與晶片嵌入式封裝接合研究" },
+        { year: "114", title: "極細晶粒銅對接技術開發" },
+        { year: "114", title: "低溫銅-銅直接鍵合技術開發" },
+        { year: "114", title: "Innovative Lab Index for Enchanced Understanding of Wafer Edge Uniformity Over 149mm in N2" },
+        { year: "114", title: "Electromigration behavior and failure mechanism of micro-bump and sub-micron bump for 3DIC" },
+        { year: "114", title: "介面熱材料性能檢測與可靠度測試" },
+        { year: "113", title: "真空封裝技術之金屬化結構製程及銲錫接合技術開發" },
+        { year: "113", title: "金錫組成與接合溫度技術研究與開發用於裝晶和陶瓷基板接合" },
+        { year: "113", title: "液態金屬介面層散熱機制先期研究計畫" },
+        { year: "113", title: "電鍍銅等向性晶粒成長對於電子構裝特性與應用之研究" },
+        { year: "112", title: "奈米雙晶銅DPC製程開發及其應用" },
+        { year: "112", title: "電鍍銅結構開發" },
+        { year: "112", title: "功率封裝(PPAK、SO8、SOIC)的銀層緻密性與銀鎳交界層附著力之探討及改善" },
+        { year: "112", title: "優化應用於銅箔製程之不溶性陽極" },
+        { year: "112", title: "石墨烯添加提高抗腐蝕能力與降低摩擦係數" },
+        { year: "112", title: "金屬接合技術研究與開發用於裝晶和陶瓷基板接合" },
+        { year: "111", title: "防銀置換劑成分分析及機制研究" },
+        { year: "111", title: "高效能低氣味之環保易回收之水性去光阻液(Stripper)研究開發計畫" }
       ];
 
       const rowsPerPage = 10;
@@ -175,27 +139,19 @@
       const paginationControls = document.getElementById("paginationControls");
       let currentPage = 1;
 
-      // 渲染表格資料
       function renderTable(page) {
         tableBody.innerHTML = ""; 
-        const totalRows = projectData.length;
         const startIndex = (page - 1) * rowsPerPage;
-        const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
+        const endIndex = Math.min(startIndex + rowsPerPage, projectData.length);
         const pageItems = projectData.slice(startIndex, endIndex);
 
         if (pageItems.length === 0) {
-          tableBody.innerHTML = "<tr><td colspan='5'>目前沒有研究計畫資料。</td></tr>";
+          tableBody.innerHTML = "<tr><td colspan='2'>目前沒有研究計畫資料。</td></tr>";
           return;
         }
 
         pageItems.forEach(item => {      
-          const row = `<tr>
-            <td>${item.role}</td>
-            <td>${item.name}</td>
-            <td>${item.title}</td>
-            <td class="col-date">${item.date}</td>
-            <td>${item.agency}</td>
-          </tr>`;
+          const row = `<tr><td>${item.year}</td><td>${item.title}</td></tr>`;
           tableBody.innerHTML += row;
         });
 
@@ -204,9 +160,7 @@
 
       function setupPagination() {
         paginationControls.innerHTML = "";
-        const totalRows = projectData.length;
-        const totalPages = Math.ceil(totalRows / rowsPerPage);
-
+        const totalPages = Math.ceil(projectData.length / rowsPerPage);
         if (totalPages <= 1) return;
 
         function createBtn(text, pageNum, isActive = false, isDisabled = false) {
@@ -230,16 +184,13 @@
 
         paginationControls.appendChild(createBtn("«", 1, false, currentPage === 1));
         paginationControls.appendChild(createBtn("<", currentPage - 1, false, currentPage === 1));
-
         for (let i = 1; i <= totalPages; i++) {
           paginationControls.appendChild(createBtn(i, i, i === currentPage, false));
         }
-
         paginationControls.appendChild(createBtn(">", currentPage + 1, false, currentPage === totalPages));
         paginationControls.appendChild(createBtn("»", totalPages, false, currentPage === totalPages));
       }
 
-      // 初始化
       renderTable(currentPage);
     });
   </script>
