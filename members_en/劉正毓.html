@@ -6,11 +6,10 @@
   <link rel="stylesheet" href="../css/style.css"> 
   <style>
     #projectTable td { vertical-align: middle; padding-top: 10px; padding-bottom: 10px; }
+    /* 1. Academic Year (第1欄): 強制不換行 */
     #projectTable th:nth-child(1), #projectTable td:nth-child(1) { white-space: nowrap; width: 1%; }
-    #projectTable th:nth-child(2), #projectTable td:nth-child(2) { white-space: nowrap; width: 1%; }
-    #projectTable td:nth-child(3) { white-space: normal; min-width: 280px; line-height: 1.5; }
-    #projectTable td:nth-child(4) { white-space: nowrap; font-family: Arial, sans-serif; }
-    #projectTable th:nth-child(5), #projectTable td:nth-child(5) { min-width: 100px; line-height: 1.4; }
+    /* 2. Project Title (第2欄): 允許自然換行 */
+    #projectTable td:nth-child(2) { white-space: normal; min-width: 400px; line-height: 1.5; }
   </style>
 </head>
 <body class="lang-en">
@@ -31,14 +30,21 @@
       <h3>Team Members</h3><p>Ph.D. Students: 5<br>Master Students: 5</p>
       <h3>Research Areas</h3>
       <p>Self-Assembled Low-Temperature Solder Paste<br>Advanced Packaging Technology<br>Metal Surface Treatment & Lead-Free Solder<br>Nanotwinned Copper Electroplating Technology<br>Thermal Management Materials Development<br>Reliability Testing Research<br>Light-Emitting Diodes (LED)<br>Transparent Conductive Films</p>
+      
       <h3>Research Projects</h3>
       <div class="table-container">
         <table class="research-table" id="projectTable">
-          <thead><tr><th>Role</th><th>Name</th><th>Project Title</th><th>Duration</th><th>Funding Agency</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Academic Year</th>
+              <th>Project Title</th>
+            </tr>
+          </thead>
           <tbody id="projectTableBody"></tbody>
         </table>
       </div>
       <div class="pagination-container" id="paginationControls"></div>
+      
       <h3>Contact Information</h3>
       <p>Office: E3-220-1<br>Campus Extension: 34228<br>E-mail: <a href="mailto:chengyi@cc.ncu.edu.tw" style="text-decoration: none;">chengyi@cc.ncu.edu.tw</a><br>Laboratory: Optoelectronic Materials Lab E3-218</p>
       <a href="../members_en.html" class="back-link">&larr; Back to Center Faculty</a>
@@ -50,15 +56,49 @@
     document.getElementById("currentYear").textContent = new Date().getFullYear();
     window.onscroll = () => { document.getElementById("scrollTopBtn").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none"; };
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    
     document.addEventListener("DOMContentLoaded", function() {
       const projectData = [
-        {role:"PI",name:"Liu, Cheng-Yi",title:"玻璃基板金屬化及低溫低壓銅-銅直接鍵合技術開發暨可靠度分析建模",date:"2025/08/01-2026/07/31",agency:"國科會"},
-        {role:"PI",name:"Liu, Cheng-Yi",title:"建構μ-銲錫合金接點之微結構控制模型及其與電遷移失效機制相關性研究",date:"2025/08/01-2026/07/31",agency:"國科會"},
-        {role:"PI",name:"Liu, Cheng-Yi",title:"開發製作具三維立體Cu6Sn5及(Cu,Ni)6Sn5化合物支架銲點的錫膏",date:"2022/08/01-2025/07/31",agency:"國科會"}
+        { year: "114", title: "高深寬比玻璃基板穿孔雙晶銅微結構填充暨附著層強化技術開發" },
+        { year: "114", title: "自組裝錫膏" },
+        { year: "114", title: "SiC晶背金屬化與晶片嵌入式封裝接合研究" },
+        { year: "114", title: "極細晶粒銅對接技術開發" },
+        { year: "114", title: "低溫銅-銅直接鍵合技術開發" },
+        { year: "114", title: "Innovative Lab Index for Enchanced Understanding of Wafer Edge Uniformity Over 149mm in N2" },
+        { year: "114", title: "Electromigration behavior and failure mechanism of micro-bump and sub-micron bump for 3DIC" },
+        { year: "114", title: "介面熱材料性能檢測與可靠度測試" },
+        { year: "113", title: "真空封裝技術之金屬化結構製程及銲錫接合技術開發" },
+        { year: "113", title: "金錫組成與接合溫度技術研究與開發用於裝晶和陶瓷基板接合" },
+        { year: "113", title: "液態金屬介面層散熱機制先期研究計畫" },
+        { year: "113", title: "電鍍銅等向性晶粒成長對於電子構裝特性與應用之研究" },
+        { year: "112", title: "奈米雙晶銅DPC製程開發及其應用" },
+        { year: "112", title: "電鍍銅結構開發" },
+        { year: "112", title: "功率封裝(PPAK、SO8、SOIC)的銀層緻密性與銀鎳交界層附著力之探討及改善" },
+        { year: "112", title: "優化應用於銅箔製程之不溶性陽極" },
+        { year: "112", title: "石墨烯添加提高抗腐蝕能力與降低摩擦係數" },
+        { year: "112", title: "金屬接合技術研究與開發用於裝晶和陶瓷基板接合" },
+        { year: "111", title: "防銀置換劑成分分析及機制研究" },
+        { year: "111", title: "高效能低氣味之環保易回收之水性去光阻液(Stripper)研究開發計畫" }
       ];
-      let currentPage=1;const rowsPerPage=10,tb=document.getElementById("projectTableBody"),pc=document.getElementById("paginationControls");
-      function renderTable(p){tb.innerHTML="";let s=(p-1)*rowsPerPage,e=Math.min(s+rowsPerPage,projectData.length),arr=projectData.slice(s,e);if(!arr.length){tb.innerHTML="<tr><td colspan='5'>No data available.</td></tr>";return;}arr.forEach(i=>{tb.innerHTML+=`<tr><td>${i.role}</td><td>${i.name}</td><td>${i.title}</td><td class="col-date">${i.date}</td><td>${i.agency}</td></tr>`;});setupPagination();}
-      function setupPagination(){pc.innerHTML="";const t=Math.ceil(projectData.length/rowsPerPage);if(t<=1)return;function c(tx,p,a,d){const b=document.createElement("a");b.href="#projectTable";b.innerText=tx;b.className="pagination-btn"+(a?" active":"")+(d?" disabled":"");if(!d)b.onclick=e=>{e.preventDefault();if(currentPage!==p){currentPage=p;renderTable(currentPage);}};return b;}pc.append(c("«",1,0,currentPage===1),c("<",currentPage-1,0,currentPage===1));let s=Math.max(1,currentPage-2),e=Math.min(t,s+4);if(e-s<4)s=Math.max(1,e-4);if(s>1){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}for(let i=s;i<=e;i++)pc.append(c(i,i,i===currentPage,0));if(e<t){let d=document.createElement("span");d.innerText="...";d.className="pagination-btn disabled";pc.append(d);}pc.append(c(">",currentPage+1,0,currentPage===t),c("»",t,0,currentPage===t));}
+      
+      let currentPage = 1; const rowsPerPage = 10, tb = document.getElementById("projectTableBody"), pc = document.getElementById("paginationControls");
+      function renderTable(p) {
+        tb.innerHTML = "";
+        let s = (p - 1) * rowsPerPage, e = Math.min(s + rowsPerPage, projectData.length), arr = projectData.slice(s, e);
+        if (!arr.length) { tb.innerHTML = "<tr><td colspan='2'>No data available.</td></tr>"; return; }
+        arr.forEach(i => { tb.innerHTML += `<tr><td>${i.year}</td><td>${i.title}</td></tr>`; });
+        setupPagination();
+      }
+      function setupPagination() {
+        pc.innerHTML = ""; const t = Math.ceil(projectData.length / rowsPerPage); if (t <= 1) return;
+        function c(tx, p, a, d) {
+          const b = document.createElement("a"); b.href = "#projectTable"; b.innerText = tx; b.className = "pagination-btn" + (a ? " active" : "") + (d ? " disabled" : "");
+          if (!d) b.onclick = e => { e.preventDefault(); if (currentPage !== p) { currentPage = p; renderTable(currentPage); } }; return b;
+        }
+        pc.append(c("«", 1, 0, currentPage === 1), c("<", currentPage - 1, 0, currentPage === 1));
+        for (let i = 1; i <= t; i++) pc.append(c(i, i, i === currentPage, 0));
+        pc.append(c(">", currentPage + 1, 0, currentPage === t), c("»", t, 0, currentPage === t));
+      }
       renderTable(currentPage);
     });
   </script>
